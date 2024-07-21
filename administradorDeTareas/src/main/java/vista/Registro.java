@@ -36,7 +36,7 @@ public class Registro extends javax.swing.JFrame {
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 424, Short.MAX_VALUE)
+      .addGap(0, 434, Short.MAX_VALUE)
     );
 
     pack();
