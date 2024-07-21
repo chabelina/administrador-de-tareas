@@ -32,11 +32,11 @@ public class Registro extends javax.swing.JFrame {
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 496, Short.MAX_VALUE)
+      .addGap(0, 740, Short.MAX_VALUE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 378, Short.MAX_VALUE)
+      .addGap(0, 424, Short.MAX_VALUE)
     );
 
     pack();
