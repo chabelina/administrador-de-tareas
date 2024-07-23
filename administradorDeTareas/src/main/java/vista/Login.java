@@ -10,6 +10,7 @@ public class Login extends javax.swing.JFrame {
    */
   public Login() {
     initComponents();
+    this.setExtendedState(this.MAXIMIZED_BOTH);
     //this.agregarIconoPanel(pnlLogo, "img/logo.png");
   }
   
