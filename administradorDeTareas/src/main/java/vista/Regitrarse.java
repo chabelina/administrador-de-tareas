@@ -35,9 +35,9 @@ public class Regitrarse extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        boton_ingresar1 = new javax.swing.JButton();
+        boton_crearcuenta = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        bnt_inciar = new javax.swing.JLabel();
         jp_pass = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -161,22 +161,22 @@ public class Regitrarse extends javax.swing.JFrame {
         jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel7.setEnabled(false);
 
-        boton_ingresar1.setBackground(new java.awt.Color(154, 43, 255));
-        boton_ingresar1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        boton_ingresar1.setForeground(new java.awt.Color(255, 255, 255));
-        boton_ingresar1.setText("Crear cuenta");
-        boton_ingresar1.setBorder(null);
-        boton_ingresar1.addActionListener(new java.awt.event.ActionListener() {
+        boton_crearcuenta.setBackground(new java.awt.Color(154, 43, 255));
+        boton_crearcuenta.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        boton_crearcuenta.setForeground(new java.awt.Color(255, 255, 255));
+        boton_crearcuenta.setText("Crear cuenta");
+        boton_crearcuenta.setBorder(null);
+        boton_crearcuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_ingresar1ActionPerformed(evt);
+                boton_crearcuentaActionPerformed(evt);
             }
         });
 
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("¿Ya tienes cuenta?");
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Iniciar Sesion.");
+        bnt_inciar.setForeground(new java.awt.Color(255, 255, 255));
+        bnt_inciar.setText("Iniciar Sesion.");
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Icono");
@@ -192,7 +192,7 @@ public class Regitrarse extends javax.swing.JFrame {
                         .addGap(127, 127, 127)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
+                        .addComponent(bnt_inciar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
@@ -202,7 +202,7 @@ public class Regitrarse extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(boton_ingresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_crearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(109, 109, 109))
         );
         jPanel7Layout.setVerticalGroup(
@@ -215,10 +215,10 @@ public class Regitrarse extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
-                .addComponent(boton_ingresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_crearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
+                    .addComponent(bnt_inciar)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18))
         );
@@ -315,9 +315,9 @@ public class Regitrarse extends javax.swing.JFrame {
     // TODO add your handling code here:
   }//GEN-LAST:event_txt_nombreActionPerformed
 
-    private void boton_ingresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresar1ActionPerformed
+    private void boton_crearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crearcuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boton_ingresar1ActionPerformed
+    }//GEN-LAST:event_boton_crearcuentaActionPerformed
 
     private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
@@ -374,7 +374,8 @@ public class Regitrarse extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton boton_ingresar1;
+    private javax.swing.JLabel bnt_inciar;
+    private javax.swing.JButton boton_crearcuenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -385,7 +386,6 @@ public class Regitrarse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
