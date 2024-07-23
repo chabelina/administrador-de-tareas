@@ -325,21 +325,24 @@ public class Login extends javax.swing.JFrame {
   }//GEN-LAST:event_txt_emailActionPerformed
   
     private void boton_ingresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresar1ActionPerformed
-        // TODO add your handling code here:
+       String email = this.txt_email.getText();
+        String pass = String.valueOf(this.jp_pass.getPassword());
+        int resultado = acceso_data.acceso(email,pass);
+        System.out.println("resultado : "+ resultado);
+        if(resultado >= 1){
+            PrincipalesOpciones principal = new PrincipalesOpciones();
+            principal.set_id_user(resultado);
+            principal.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null,"El usuario o la contrasenia es incorrecta");
+        }
     }//GEN-LAST:event_boton_ingresar1ActionPerformed
 
   private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-    String email = this.txt_email.getText();
-    String pass = String.valueOf(this.jp_pass.getPassword());
-    int resultado = acceso_data.acceso(email,pass);
-    System.out.println("resultado : "+ resultado);
-    if(resultado >= 1){
-        PrincipalesOpciones principal = new PrincipalesOpciones();
-        principal.setVisible(true);
-        this.dispose();
-    }else{
-        JOptionPane.showMessageDialog(null,"El usuario o la contrasenia es incorrecta");
-    }
+      Regitrarse crear_c = new Regitrarse();
+      crear_c.setVisible(true);
+      this.dispose();
   }//GEN-LAST:event_jToggleButton1ActionPerformed
 
   /**

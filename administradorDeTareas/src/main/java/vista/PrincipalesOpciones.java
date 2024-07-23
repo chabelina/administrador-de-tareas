@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controller.controllerUsuario;
 import java.awt.Color;
 
 /**
@@ -14,23 +15,29 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   private int id_usuario = 0;
   private IngresarCodigoDeProyecto v_codigo;
   private CrearUnProyecto new_proyect;
+  private controllerUsuario user;
   /**
    * Creates new form PrincipalesOpciones
    */
   public PrincipalesOpciones() {
     initComponents();
     this.setExtendedState(this.MAXIMIZED_BOTH);
-    //Iniciando_codigo_datos();
   }
   public PrincipalesOpciones(int id_user){
     initComponents();
     this.id_usuario = id_user;
     this.setExtendedState(this.MAXIMIZED_BOTH);
-    Iniciando_codigo_datos();
   }
   public void Iniciando_codigo_datos(){
-      this.v_codigo = new IngresarCodigoDeProyecto(this.id_usuario);   
-      this.new_proyect = new CrearUnProyecto(this.id_usuario);
+      this.v_codigo = new IngresarCodigoDeProyecto(this.user);  
+      this.new_proyect = new CrearUnProyecto(this.user);
+      
+      this.label_nombre_user.setText(user.getNombre());
+  }
+  public void set_id_user(int id){
+      this.id_usuario = id;
+      this.user = new controllerUsuario(this.id_usuario);
+      Iniciando_codigo_datos();
   }
   /**
    * This method is called from within the constructor to initialize the form.
@@ -264,6 +271,9 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     public void set_ventana_codigo(IngresarCodigoDeProyecto v_code){
         this.v_codigo = v_code;
+    }
+    public controllerUsuario set_user(){
+        return this.user;
     }
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         this.setForeground(Color.red);

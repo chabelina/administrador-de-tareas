@@ -4,6 +4,8 @@
  */
 package vista;
 
+import controller.controllerUsuario;
+
 /**
  *
  * @author Usuario
@@ -11,15 +13,16 @@ package vista;
 public class CrearUnProyecto extends javax.swing.JFrame {
     private int id_user = -1;
     private PrincipalesOpciones principal_datos;
+    private controllerUsuario usuario;
   /**
    * Creates new form CrearUnProyecto
    */
   public CrearUnProyecto() {
     initComponents();
   }
-  public CrearUnProyecto(int id) {
+  public CrearUnProyecto(controllerUsuario id) {
     initComponents();
-    this.id_user = id;
+    this.usuario = id;
   }
 
   /**

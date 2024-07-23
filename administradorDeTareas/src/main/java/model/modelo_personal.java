@@ -9,7 +9,11 @@ public class modelo_personal extends modelo{
     }
 
     public int validador_usuario(String user,String pass){
-        String dato = this.retornar_columna("select softwaretareas.validacion_cuenta('"+user+"', '"+pass+"')");
+        String dato = this.retornar_columna("select validacion_cuenta('"+user+"', '"+pass+"')");
+        return Integer.parseInt(dato);
+    }
+    public int InsertarUsuario(String nombre,String email,String contra){
+        String dato = this.retornar_columna("select registrar_usuario('"+nombre+"','"+email+"','"+contra+"')");
         return Integer.parseInt(dato);
     }
 }
