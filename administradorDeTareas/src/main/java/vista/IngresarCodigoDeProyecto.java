@@ -203,6 +203,7 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
         if(id == -1){
             JOptionPane.showMessageDialog(null,"El codigo ingresado no pertenece a ningun proyecto");
         }else{
+            
             layout_IngresarProyecto label_data = new layout_IngresarProyecto(this,true); 
             label_data.Inciar_conexion(proyecto,this.id_user.getId_usuario());
             label_data.setVisible(true);
