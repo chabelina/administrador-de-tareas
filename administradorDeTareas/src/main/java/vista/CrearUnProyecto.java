@@ -4,14 +4,15 @@
  */
 package vista;
 
+import controller.ControllerProyectos;
 import controller.controllerUsuario;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Usuario
  */
 public class CrearUnProyecto extends javax.swing.JFrame {
-    private int id_user = -1;
     private PrincipalesOpciones principal_datos;
     private controllerUsuario usuario;
   /**
@@ -23,6 +24,7 @@ public class CrearUnProyecto extends javax.swing.JFrame {
   public CrearUnProyecto(controllerUsuario id) {
     initComponents();
     this.usuario = id;
+      System.out.println("Iniciando datos");
   }
 
   /**
@@ -39,14 +41,14 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txt_nombre_p = new javax.swing.JTextField();
+        txt_descripcion_p = new javax.swing.JTextField();
+        txt_cantidad = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        btn_crear = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,15 +68,15 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CANTIDAD DE PERSONAS");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txt_nombre_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txt_nombre_pActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txt_descripcion_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txt_descripcion_pActionPerformed(evt);
             }
         });
 
@@ -88,9 +90,9 @@ public class CrearUnProyecto extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField1)
+                        .addComponent(txt_cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
+                    .addComponent(txt_descripcion_p)
+                    .addComponent(txt_nombre_p)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -101,15 +103,15 @@ public class CrearUnProyecto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(7, 7, 7)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_nombre_p, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_descripcion_p, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                    .addComponent(txt_cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -144,20 +146,25 @@ public class CrearUnProyecto extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 135, 103));
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("CREAR PROYECTO");
+        btn_crear.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_crear.setForeground(new java.awt.Color(255, 255, 255));
+        btn_crear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_crear.setText("CREAR PROYECTO");
+        btn_crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_crearMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(btn_crear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btn_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -205,18 +212,45 @@ public class CrearUnProyecto extends javax.swing.JFrame {
   public void setv1(PrincipalesOpciones v11){
       this.principal_datos = v11;
   }
-  private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+  private void txt_descripcion_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descripcion_pActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField2ActionPerformed
+  }//GEN-LAST:event_txt_descripcion_pActionPerformed
 
-  private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+  private void txt_nombre_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_pActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField1ActionPerformed
+  }//GEN-LAST:event_txt_nombre_pActionPerformed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
        this.principal_datos.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void btn_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearMouseClicked
+        String nombre_p = this.txt_nombre_p.getText();
+        String desc_p = this.txt_descripcion_p.getText();
+        ControllerProyectos conec = new ControllerProyectos();
+        int cantidad = Integer.parseInt(this.txt_cantidad.getText());
+        int resultado = conec.CrearProyecto(this.usuario.getId_usuario(), nombre_p, desc_p, cantidad);
+        String mensaje = "";
+        if(resultado == -1){
+            mensaje = "ERROR AL CREAR EL PROYECTO";
+        }else if(resultado == -2){
+            mensaje = "YA EXISTE UN PROYECTO CON ESTE NOMBRE";
+        }else if(resultado == -6){
+            mensaje = "LA CANTIDAD MINIMA ES 3";
+        }else if(resultado == -4){
+            mensaje = "SOLO ESTA PERMITIDO LETRAS Y NUMEROS O ARROBAS";
+        }else if(resultado == -5){
+            mensaje ="EL NOMBRE TIENE QUE SER MAYOR A 5 CARACTERES";
+        }
+        if(resultado == 1){
+            JOptionPane.showMessageDialog(null,"EL PROYECTO SE CREO EXITOSAMENTE");
+            this.setVisible(false);
+            this.principal_datos.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,mensaje);
+        }
+    }//GEN-LAST:event_btn_crearMouseClicked
 
   /**
    * @param args the command line arguments
@@ -254,18 +288,18 @@ public class CrearUnProyecto extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btn_crear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txt_cantidad;
+    private javax.swing.JTextField txt_descripcion_p;
+    private javax.swing.JTextField txt_nombre_p;
     // End of variables declaration//GEN-END:variables
 }
