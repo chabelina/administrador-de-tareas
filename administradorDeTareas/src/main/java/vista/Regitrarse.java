@@ -10,6 +10,7 @@ public class Regitrarse extends javax.swing.JFrame {
    */
   public Regitrarse() {
     initComponents();
+    this.setExtendedState(this.MAXIMIZED_BOTH);
     //this.agregarIconoPanel(pnlLogo, "img/logo.png");
   }
   
@@ -177,6 +178,11 @@ public class Regitrarse extends javax.swing.JFrame {
 
         bnt_inciar.setForeground(new java.awt.Color(255, 255, 255));
         bnt_inciar.setText("Iniciar Sesion.");
+        bnt_inciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bnt_inciarMouseClicked(evt);
+            }
+        });
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Icono");
@@ -316,12 +322,34 @@ public class Regitrarse extends javax.swing.JFrame {
   }//GEN-LAST:event_txt_nombreActionPerformed
 
     private void boton_crearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crearcuentaActionPerformed
-        // TODO add your handling code here:
+        String nombre = this.txt_nombre.getText();
+        String email = this.txt_email.getText();
+        String contra = String.valueOf(this.jp_pass.getPassword());
+        int resultado = this.acceso_data.registrarse(nombre, email, contra);
+        if(resultado >= 1){
+            JOptionPane.showMessageDialog(null,"Su cuenta se ah creado con exito \n BIENVENIDO "+nombre+"");
+            PrincipalesOpciones accediendo = new PrincipalesOpciones(resultado);
+            accediendo.set_id_user(resultado);
+            accediendo.setVisible(true);
+            this.dispose();
+        }else if(resultado == -1){
+            JOptionPane.showMessageDialog(null,"El correo ingresado ya esta en uso");
+        }else if(resultado == -3){
+            JOptionPane.showMessageDialog(null,"La contraseña tiene que se mas de 10 caracteres");
+        } else{
+            JOptionPane.showMessageDialog(null,"Correo o contra ingresados son incorrectos");
+        }
     }//GEN-LAST:event_boton_crearcuentaActionPerformed
 
     private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_emailActionPerformed
+
+    private void bnt_inciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnt_inciarMouseClicked
+        Login crear = new Login();
+        crear.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bnt_inciarMouseClicked
 
   /**
    * @param args the command line arguments

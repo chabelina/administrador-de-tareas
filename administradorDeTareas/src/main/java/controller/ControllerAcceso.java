@@ -22,4 +22,22 @@ public class ControllerAcceso {
        }
        return id_return;
     }
+    public int registrarse(String nombre,String email,String contra){
+        int id_return;
+        String expresion_validador = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String expresion_2 = "^[a-zA-Z0-9-@.]+$";
+        Pattern expresion = Pattern.compile(expresion_validador);
+        Pattern expresion2_s = Pattern.compile(expresion_2);
+        Matcher validando_user = expresion.matcher(email);
+        Matcher validando_pass = expresion2_s.matcher(contra);
+        int cantidad = contra.length();
+        if(cantidad < 8){
+            id_return = -3;
+        }else if(validando_user.matches()  && validando_pass.matches()){
+            id_return = conexion.InsertarUsuario(nombre, email, contra); 
+       }else{
+           id_return = -2;
+       }
+        return id_return;
+    }
 }
