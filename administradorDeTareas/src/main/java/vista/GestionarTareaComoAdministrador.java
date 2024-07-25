@@ -4,9 +4,11 @@
  */
 package vista;
 
+import EstilosComponents.GestionEncabezadoTabla;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import estilosComponents.GestionEncabezadoTabla;
+
+
 
 /**
  *
