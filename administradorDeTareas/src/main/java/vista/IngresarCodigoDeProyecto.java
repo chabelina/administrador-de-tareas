@@ -4,20 +4,25 @@
  */
 package vista;
 
+import controller.ControllerProyectos;
+import controller.controllerUsuario;
+import javax.swing.JOptionPane;
+import layouts.layout_IngresarProyecto;
+
 /**
  *
  * @author Usuario
  */
 public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
     private PrincipalesOpciones v1;
-    private int id_user = -1;
+    private controllerUsuario id_user;
   /**
    * Creates new form IngresarCodigoDeProyecto
    */
   public IngresarCodigoDeProyecto() {
     initComponents();
   }
-  public IngresarCodigoDeProyecto(int id){
+  public IngresarCodigoDeProyecto(controllerUsuario id){
     initComponents();
     this.id_user = id;
   }
@@ -34,9 +39,9 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_codigo = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        btn_ingresar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -51,9 +56,14 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CODIGO DEL PROYECTO");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txt_codigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_codigoMouseClicked(evt);
+            }
+        });
+        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txt_codigoActionPerformed(evt);
             }
         });
 
@@ -62,33 +72,38 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
-            .addComponent(jTextField1)
+            .addComponent(txt_codigo)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 135, 103));
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("CREAR PROYECTO");
+        btn_ingresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ingresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_ingresar.setText("CREAR PROYECTO");
+        btn_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ingresarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(btn_ingresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -167,14 +182,33 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
   public void setv1(PrincipalesOpciones v11){
       this.v1 = v11;
   }
-  private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+  private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField1ActionPerformed
+  }//GEN-LAST:event_txt_codigoActionPerformed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
        v1.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void txt_codigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_codigoMouseClicked
+        
+    }//GEN-LAST:event_txt_codigoMouseClicked
+
+    private void btn_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ingresarMouseClicked
+        String codigo = this.txt_codigo.getText();
+        ControllerProyectos proyecto = new ControllerProyectos();
+        proyecto.MostratProyecto(codigo);
+        int id = proyecto.getId_proyecto();
+        if(id == -1){
+            JOptionPane.showMessageDialog(null,"El codigo ingresado no pertenece a ningun proyecto");
+        }else{
+            
+            layout_IngresarProyecto label_data = new layout_IngresarProyecto(this,true); 
+            label_data.Inciar_conexion(proyecto,this.id_user.getId_usuario());
+            label_data.setVisible(true);
+        }
+    }//GEN-LAST:event_btn_ingresarMouseClicked
 
   /**
    * @param args the command line arguments
@@ -212,14 +246,14 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btn_ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txt_codigo;
     // End of variables declaration//GEN-END:variables
 }
