@@ -133,7 +133,7 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
 
             },
             new String [] {
-                "ID", "NOMBRE DEL PROYECTO"
+
             }
         ));
         TablaAdmin.setColumnSelectionAllowed(true);
@@ -166,9 +166,10 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
 
             },
             new String [] {
-                "ID", "NOMBRE DEL PROYECTO"
+
             }
         ));
+        TablaParticipante.setColumnSelectionAllowed(true);
         TablaParticipante.setMinimumSize(new java.awt.Dimension(200, 80));
         jScrollPane2.setViewportView(TablaParticipante);
         TablaParticipante.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);

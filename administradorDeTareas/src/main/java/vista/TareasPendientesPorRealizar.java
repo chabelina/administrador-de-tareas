@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
+import layouts.ModificarTareaPersonal;
+
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -17,13 +19,13 @@ import EstilosComponents.GestionEncabezadoTabla;
  *
  * @author HP
  */
-public class GestionarTareas extends javax.swing.JFrame {
+public class TareasPendientesPorRealizar extends javax.swing.JFrame {
 public ControllerGestionarTareas ControllerGestionarTareas;
     /**
      * Creates new form TareasEliminadas
      */
     DefaultTableModel modelo;
-    public GestionarTareas() {
+    public TareasPendientesPorRealizar() {
         initComponents();
         this.setLocationRelativeTo(null);
         ControllerGestionarTareas = new ControllerGestionarTareas(this);
@@ -70,7 +72,6 @@ public ControllerGestionarTareas ControllerGestionarTareas;
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1333, 666));
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
         jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
@@ -102,7 +103,7 @@ public ControllerGestionarTareas ControllerGestionarTareas;
 
             },
             new String [] {
-                "ID", "NOMBRE DE TAREA", "DESCRIPCION", "PRIORIDAD", "FECHA LIMITE"
+
             }
         ));
         jTable1.setColumnSelectionAllowed(true);
@@ -226,13 +227,13 @@ public ControllerGestionarTareas ControllerGestionarTareas;
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 420, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(14, 14, 14))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(97, Short.MAX_VALUE))))
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -257,6 +258,9 @@ public ControllerGestionarTareas ControllerGestionarTareas;
 
     private void BtnAgregarNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarNuevaTareaActionPerformed
         // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_BtnAgregarNuevaTareaActionPerformed
 
     private void BtnLimpiarListaTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarListaTareasActionPerformed
@@ -265,6 +269,9 @@ public ControllerGestionarTareas ControllerGestionarTareas;
 
     private void ModificarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarTareaActionPerformed
         // TODO add your handling code here:
+        
+        ModificarTareaPersonal modificarTarea = new ModificarTareaPersonal( (java.awt.Frame) this.getParent(), true);
+        modificarTarea.setVisible(true);
     }//GEN-LAST:event_ModificarTareaActionPerformed
 
     private void BtnEliminarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarTareaActionPerformed
@@ -289,21 +296,23 @@ public ControllerGestionarTareas ControllerGestionarTareas;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestionarTareas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TareasPendientesPorRealizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestionarTareas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TareasPendientesPorRealizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestionarTareas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TareasPendientesPorRealizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionarTareas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TareasPendientesPorRealizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestionarTareas().setVisible(true);
+                new TareasPendientesPorRealizar().setVisible(true);
             }
         });
     }

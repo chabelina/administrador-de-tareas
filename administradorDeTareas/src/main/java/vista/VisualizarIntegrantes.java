@@ -29,27 +29,6 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
     initComponents();
     
     modelo = new DefaultTableModel();
-    modelo.addColumn("ID");
-    modelo.addColumn("Nombre de Integrante");
-    modelo.addColumn("Email");
-    this.table_tareas.setModel(modelo);
-   
-    modelo.addRow(new Object[]{1, "Persona 1", "Persona1@gmail.com"});
-    modelo.addRow(new Object[]{2, "Persona 2", "Persona2@gmail.com"});
-    
-    CentrarDatosDeTabla CentrarDatos = new CentrarDatosDeTabla();
-    for (int i = 0; i < table_tareas.getColumnCount(); i++) {
-        table_tareas.getColumnModel().getColumn(i).setCellRenderer(CentrarDatos);
-    }
-    
-    TableColumn column = table_tareas.getColumnModel().getColumn(0);
-    column.setPreferredWidth(50);
-    column.setMaxWidth(50); 
-    
-    table_tareas.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
-    
-    JTableHeader theader = table_tareas.getTableHeader();
-    theader.setDefaultRenderer(new GestionEncabezadoTabla());
   }
 
   /**
@@ -67,8 +46,8 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table_tareas = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,44 +95,37 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
-        table_tareas.setBackground(new java.awt.Color(19, 30, 35));
-        table_tareas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        table_tareas.setForeground(new java.awt.Color(255, 255, 255));
-        table_tareas.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setBackground(new java.awt.Color(19, 30, 35));
+        jTable1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Persona 1", "Persona1@gmail.com"},
-                {"2", "Persona 2", "Persona2@gmail.com"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "ID", "Nombre de Integrante", "Email"
+
             }
         ));
-        table_tareas.setInheritsPopupMenu(true);
-        table_tareas.setName(""); // NOI18N
-        table_tareas.setRowHeight(50);
-        table_tareas.setRowMargin(1);
-        jScrollPane2.setViewportView(table_tareas);
+        jTable1.setColumnSelectionAllowed(true);
+        jTable1.setMinimumSize(new java.awt.Dimension(200, 80));
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1093, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -179,7 +151,7 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,7 +219,7 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable table_tareas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

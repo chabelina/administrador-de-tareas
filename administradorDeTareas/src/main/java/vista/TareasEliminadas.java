@@ -110,12 +110,13 @@ public Controller controller;
 
             },
             new String [] {
-                "ID", "MARCADO", "NOMBRE DE LA TAREA", "DESCRIPCION", "PRIORIDAD", "FECHA LIMITE", "FECHA DE ELIMINACION"
+
             }
         ));
         jTable1.setColumnSelectionAllowed(true);
         jTable1.setMinimumSize(new java.awt.Dimension(200, 80));
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

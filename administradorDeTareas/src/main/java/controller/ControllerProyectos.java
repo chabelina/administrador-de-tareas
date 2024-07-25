@@ -77,5 +77,6 @@ public class ControllerProyectos {
     public int getCant_mienbros() {
         return cant_mienbros;
     }
+
     
 }

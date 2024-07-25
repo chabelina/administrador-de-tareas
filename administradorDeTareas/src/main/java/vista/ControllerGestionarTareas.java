@@ -6,15 +6,15 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 /**
- * Controlador para la clase GestionarTareas
+ * Controlador para la clase TareasPendientesPorRealizar
  * 
  * @autor HP
  */
 public class ControllerGestionarTareas implements MouseListener {
-    private final GestionarTareas view;
+    private final TareasPendientesPorRealizar view;
 
     // Constructor que inicializa la vista y los eventos
-    public ControllerGestionarTareas(GestionarTareas view) {
+    public ControllerGestionarTareas(TareasPendientesPorRealizar view) {
         this.view = view;
         events();
     }
