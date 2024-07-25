@@ -86,7 +86,6 @@ public class OverviewProyectos extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\delca\\Documents\\NetBeansProjects\\ProyectoFinal\\administradorDeTareas\\src\\main\\resources\\images\\atrasflecha.png")); // NOI18N
         jButton1.setText("REGRESAR");
         jButton1.setActionCommand("jButton");
         jButton1.setIconTextGap(30);
