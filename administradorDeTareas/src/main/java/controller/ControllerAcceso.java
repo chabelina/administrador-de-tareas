@@ -22,6 +22,7 @@ public class ControllerAcceso {
        }
        return id_return;
     }
+    
     public int registrarse(String nombre,String email,String contra){
         int id_return;
         String expresion_validador = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";

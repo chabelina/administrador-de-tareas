@@ -158,6 +158,15 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
     jLabel5.setForeground(new java.awt.Color(255, 255, 255));
     jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel5.setText("UNIRSE A UN PROYECTO");
+    jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
+      public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+        jLabel5AncestorAdded(evt);
+      }
+      public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+      }
+      public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+      }
+    });
 
     javax.swing.GroupLayout btn_unirseLayout = new javax.swing.GroupLayout(btn_unirse);
     btn_unirse.setLayout(btn_unirseLayout);
@@ -322,6 +331,10 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
     private void adm_proyectosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adm_proyectosMouseClicked
         System.out.println("clikeado administrador tareas");
     }//GEN-LAST:event_adm_proyectosMouseClicked
+
+  private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel5AncestorAdded
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jLabel5AncestorAdded
 
   /**
    * @param args the command line arguments

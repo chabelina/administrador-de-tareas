@@ -286,6 +286,9 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="UNIRSE A UN PROYECTO"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jLabel5AncestorAdded"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

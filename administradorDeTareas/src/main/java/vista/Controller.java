@@ -15,13 +15,12 @@ public class Controller implements MouseListener {
     private final TareasEliminadas view;
 
     public final void events(){
-    view.regresar.addMouseListener(this);
-    view.recuperar.addMouseListener(this);
-
-}
+      view.regresar.addMouseListener(this);
+      view.recuperar.addMouseListener(this);
+    }
     public Controller( TareasEliminadas view){
-    this.view=view;
-    events();
+      this.view=view;
+      events();
     }
     
     @Override
@@ -57,18 +56,13 @@ public class Controller implements MouseListener {
         Object evt = e.getSource();
         
         if(evt.equals(view.regresar)){
-         changebackground(view.jPanel1,new Color(251, 252, 252));
-        
-        }else if(evt.equals(view.recuperar)){
-            
-        changebackground(view.jPanel3,new Color(251, 252, 252 ));    
+          changebackground(view.jPanel1,new Color(251, 252, 252));
+        }else if(evt.equals(view.recuperar)){  
+          changebackground(view.jPanel3,new Color(251, 252, 252 ));    
         } 
     }
     
     private void changebackground(JPanel panel,Color color){
-    
         panel.setBackground(color);
-    
-    
     }
 }
