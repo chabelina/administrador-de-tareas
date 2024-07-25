@@ -4,6 +4,9 @@
  */
 package vista;
 
+import java.awt.*;
+import javax.swing.*;
+
 /**
  *
  * @author delca
@@ -15,8 +18,52 @@ public class OverviewProyectos extends javax.swing.JFrame {
      */
     public OverviewProyectos() {
         initComponents();
+        jLabel1.setForeground(Color.WHITE);
+        frame.setLayout(new BoxLayout(frame, BoxLayout.Y_AXIS)); // Set vertical layout for jPanel1
+        generarTabla();
     }
+    
+    public void generarTabla(){
+        for (int i = 0; i < 3; i++) {
+            JPanel rowPanel = new JPanel();
+            rowPanel.setLayout(new BoxLayout(rowPanel, BoxLayout.X_AXIS)); // Horizontal layout
+            
+            int numProyecto = i+1;
+            
+            // Add components to the row
+            JLabel label = new JLabel("PROYECTO NUMERO " + numProyecto);
+            JButton deleteButton = createButton("ELIMINAR", Color.RED);
+            JButton modifyButton = createButton("MODIFICAR", Color.GREEN);
+            JButton enterButton = createButton("INGRESAR", Color.BLUE);
 
+            // Add a horizontal strut for spacing
+            rowPanel.add(Box.createHorizontalStrut(10));
+            rowPanel.add(label);
+            rowPanel.add(Box.createHorizontalStrut(350));
+            rowPanel.add(Box.createHorizontalGlue()); // To push buttons to the right
+            rowPanel.add(deleteButton);
+            rowPanel.add(Box.createHorizontalStrut(10)); // Spacing between buttons
+            rowPanel.add(modifyButton);
+            rowPanel.add(Box.createHorizontalStrut(10));
+            rowPanel.add(enterButton);
+            rowPanel.add(Box.createHorizontalStrut(10)); // Spacing to the edge
+            rowPanel.add(Box.createVerticalStrut(40));
+            frame.add(rowPanel); // Add the row panel to the frame
+        }
+        
+       frame.setVisible(true);
+       
+    }
+    
+    private static JButton createButton(String text, Color color) {
+        JButton button = new JButton(text);
+        button.setBackground(color);
+        button.setForeground(Color.WHITE);
+        button.setFocusPainted(false);
+        button.setBorderPainted(false);
+        return button;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,38 +75,71 @@ public class OverviewProyectos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        frame = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(19, 30, 35));
 
         jPanel1.setBackground(new java.awt.Color(19, 30, 35));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/atrasflecha.png"))); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\delca\\Documents\\NetBeansProjects\\ProyectoFinal\\administradorDeTareas\\src\\main\\resources\\images\\atrasflecha.png")); // NOI18N
         jButton1.setText("REGRESAR");
         jButton1.setActionCommand("jButton");
-        jButton1.setIconTextGap(35);
+        jButton1.setIconTextGap(30);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        frame.setBackground(new java.awt.Color(19, 30, 35));
+
+        javax.swing.GroupLayout frameLayout = new javax.swing.GroupLayout(frame);
+        frame.setLayout(frameLayout);
+        frameLayout.setHorizontalGroup(
+            frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 761, Short.MAX_VALUE)
+        );
+        frameLayout.setVerticalGroup(
+            frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 174, Short.MAX_VALUE)
+        );
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("PROYECTOS COMO ADMINISTRADOR");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(922, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(271, 271, 271)
+                        .addComponent(frame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(541, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addComponent(frame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,7 +196,9 @@ public class OverviewProyectos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel frame;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
