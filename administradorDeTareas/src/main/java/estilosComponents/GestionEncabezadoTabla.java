@@ -10,12 +10,6 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.TableCellRenderer;
 
-/**
- * Permite personalizar el encabezado de la tabla para definir el color que tendr� en las 
- * columnas
- * @author CHENAO
- *
- */
 public class GestionEncabezadoTabla  implements TableCellRenderer {
     
     @Override
@@ -33,7 +27,6 @@ public class GestionEncabezadoTabla  implements TableCellRenderer {
         //jcomponent.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 1, new java.awt.Color(221, 211, 211)));
         //jcomponent.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 1, new java.awt.Color(255, 255, 255)));
         jcomponent.setOpaque(true);
-        //jcomponent.setBackground( new Color(236,234,219) );
         jcomponent.setBackground( new Color(19,30,35) );
         jcomponent.setToolTipText("Tabla Seguimiento");
         jcomponent.setForeground(Color.white);

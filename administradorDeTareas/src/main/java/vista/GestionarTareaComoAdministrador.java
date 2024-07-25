@@ -171,6 +171,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
     ));
     table_tareas.setInheritsPopupMenu(true);
     table_tareas.setName(""); // NOI18N
+    table_tareas.setRowHeight(50);
     table_tareas.setRowMargin(1);
     jScrollPane2.setViewportView(table_tareas);
 
