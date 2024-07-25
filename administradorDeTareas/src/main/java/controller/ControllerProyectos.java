@@ -78,5 +78,9 @@ public class ControllerProyectos {
         return cant_mienbros;
     }
 
-    
+    public List<String[]> tareas_usuario(int id){
+        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM softwaretareas.tareaspersonales where id_usuario = "+id+";";
+        List<String[]> datos = this.conexion.valores_array(consulta);
+        return datos;
+    }
 }

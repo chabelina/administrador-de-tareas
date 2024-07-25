@@ -3,10 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.JPanel;
 
 import layouts.ModificarTareaPersonal;
 
@@ -15,35 +11,24 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import EstilosComponents.GestionEncabezadoTabla;
-/**
- *
- * @author HP
- */
+import controller.ControllerProyectos;
+import controller.controllerUsuario;
+import java.util.List;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 public class TareasPendientesPorRealizar extends javax.swing.JFrame {
-public ControllerGestionarTareas ControllerGestionarTareas;
-    /**
-     * Creates new form TareasEliminadas
-     */
+    public ControllerGestionarTareas ControllerGestionarTareas;
+    private controllerUsuario datos_user;
+    private ControllerProyectos conexion = new ControllerProyectos();
     DefaultTableModel modelo;
     public TareasPendientesPorRealizar() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ControllerGestionarTareas = new ControllerGestionarTareas(this);
-        
-    modelo = new DefaultTableModel();
-    modelo.addColumn("ID");
-    modelo.addColumn("NOMBRE DE LA TAREA");
-    modelo.addColumn("DESCRIPCION");
-    modelo.addColumn("PRIORIDAD");
-    modelo.addColumn("FECHA LIMITE");
-    this.jTable1.setModel(modelo);
-  
-    JTableHeader theader = jTable1.getTableHeader();
-    theader.setDefaultRenderer(new GestionEncabezadoTabla());
-    //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
-    jTable1.setBackground(Color.WHITE);
-    }
+        ControllerGestionarTareas = new ControllerGestionarTareas(this);        
 
+    //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +43,7 @@ public ControllerGestionarTareas ControllerGestionarTareas;
         regresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_datos_principal1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         ModificarTarea = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -95,10 +80,10 @@ public ControllerGestionarTareas ControllerGestionarTareas;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TAREAS PENDIENTES POR REALIZAR");
 
-        jTable1.setBackground(new java.awt.Color(19, 30, 35));
-        jTable1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_datos_principal1.setBackground(new java.awt.Color(19, 30, 35));
+        tabla_datos_principal1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        tabla_datos_principal1.setForeground(new java.awt.Color(255, 255, 255));
+        tabla_datos_principal1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -106,10 +91,10 @@ public ControllerGestionarTareas ControllerGestionarTareas;
 
             }
         ));
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setMinimumSize(new java.awt.Dimension(200, 80));
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tabla_datos_principal1.setColumnSelectionAllowed(true);
+        tabla_datos_principal1.setMinimumSize(new java.awt.Dimension(200, 80));
+        jScrollPane1.setViewportView(tabla_datos_principal1);
+        tabla_datos_principal1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
 
@@ -251,7 +236,32 @@ public ControllerGestionarTareas ControllerGestionarTareas;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void agregar_datos_tabla(){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row,int colum){
+                return false;
+            }
+        };
+        
+        TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<TableModel>(modelo); 
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE DE LA TAREA");
+        modelo.addColumn("DESCRIPCION");
+        modelo.addColumn("PRIORIDAD");
+        modelo.addColumn("FECHA LIMITE");
+        
+        List<String[]> datos = this.conexion.tareas_usuario(this.datos_user.getId_usuario());
+        for(String[] dato : datos){
+            modelo.addRow(dato);
+        }
+        this.tabla_datos_principal1.setModel(modelo);
+    }
+    public void set_usuario_date(controllerUsuario user){
+        this.datos_user = user;
+        this.agregar_datos_tabla();
+    }
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_regresarActionPerformed
@@ -333,7 +343,7 @@ public ControllerGestionarTareas ControllerGestionarTareas;
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     public javax.swing.JButton regresar;
+    private javax.swing.JTable tabla_datos_principal1;
     // End of variables declaration//GEN-END:variables
 }

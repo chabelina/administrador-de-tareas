@@ -15,7 +15,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   private int id_usuario = 0;
   private IngresarCodigoDeProyecto v_codigo;
   private CrearUnProyecto new_proyect;
-  
+  private TareasPendientesPorRealizar gestionar_tarea;
   private controllerUsuario user;
   /**
    * Creates new form PrincipalesOpciones
@@ -32,8 +32,9 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   public void Iniciando_codigo_datos(){
       this.v_codigo = new IngresarCodigoDeProyecto(this.user);  
       this.new_proyect = new CrearUnProyecto(this.user);
-      
+      this.gestionar_tarea = new TareasPendientesPorRealizar();
       this.label_nombre_user.setText(user.getNombre());
+      
   }
   public void set_id_user(int id){
       this.id_usuario = id;
@@ -326,6 +327,9 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
 
     private void btn_adm_tareasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_adm_tareasMouseClicked
         System.out.println("clikeado tareas");
+        this.gestionar_tarea.setVisible(true);
+        this.gestionar_tarea.set_usuario_date(this.user);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_adm_tareasMouseClicked
 
     private void adm_proyectosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adm_proyectosMouseClicked
