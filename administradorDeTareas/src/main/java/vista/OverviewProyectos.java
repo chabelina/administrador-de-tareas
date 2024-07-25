@@ -24,14 +24,16 @@ public class OverviewProyectos extends javax.swing.JFrame {
     }
     
     public void generarTabla(){
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             JPanel rowPanel = new JPanel();
+            rowPanel.setBackground(new Color(19,30,35));
             rowPanel.setLayout(new BoxLayout(rowPanel, BoxLayout.X_AXIS)); // Horizontal layout
             
             int numProyecto = i+1;
             
             // Add components to the row
             JLabel label = new JLabel("PROYECTO NUMERO " + numProyecto);
+            label.setForeground(new Color(255,255,255));
             JButton deleteButton = createButton("ELIMINAR", Color.RED);
             JButton modifyButton = createButton("MODIFICAR", Color.GREEN);
             JButton enterButton = createButton("INGRESAR", Color.BLUE);
