@@ -54,7 +54,7 @@ public class ModificarProyecto extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Modificar Tarea");
+        jLabel1.setText("MODIFICAR PROYECTO");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
