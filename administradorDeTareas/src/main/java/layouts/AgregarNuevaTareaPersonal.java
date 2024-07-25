@@ -16,6 +16,9 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
   public AgregarNuevaTareaPersonal(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
     initComponents();
+    
+    this.setLocationRelativeTo(null);
+    
   }
 
   /**

@@ -5,6 +5,10 @@
 package vista;
 
 import layouts.ModificarTareaPersonal;
+import layouts.AgregarNuevaTareaPersonal;
+import layouts.EliminarTarea;
+
+
 
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -269,7 +273,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     private void BtnAgregarNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarNuevaTareaActionPerformed
         // TODO add your handling code here:
         
-        
+        AgregarNuevaTareaPersonal agregarTarea = new AgregarNuevaTareaPersonal(this, true);
+        agregarTarea.setVisible(true);
         
     }//GEN-LAST:event_BtnAgregarNuevaTareaActionPerformed
 
@@ -286,7 +291,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
 
     private void BtnEliminarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarTareaActionPerformed
         // TODO add your handling code here:
-        
+        EliminarTarea eliminarTarea = new EliminarTarea(this, true);
+        eliminarTarea.setVisible(true);
     }//GEN-LAST:event_BtnEliminarTareaActionPerformed
 
     /**

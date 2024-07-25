@@ -16,6 +16,9 @@ public class EliminarTarea extends javax.swing.JDialog {
   public EliminarTarea(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
     initComponents();
+    
+    this.setLocationRelativeTo(null);
+    
   }
 
   /**
