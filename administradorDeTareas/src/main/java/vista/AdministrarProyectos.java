@@ -103,11 +103,10 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         });
         jPanel1.add(regresar, java.awt.BorderLayout.CENTER);
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel3.setBackground(new java.awt.Color(0, 255, 51));
         jPanel3.setToolTipText("");
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        BntGesProyecAdmin.setBackground(new java.awt.Color(0, 153, 0));
         BntGesProyecAdmin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BntGesProyecAdmin.setText("GESTIONAR PROYECTOS COMO ADMINISTRADOR");
         BntGesProyecAdmin.setContentAreaFilled(false);
@@ -141,13 +140,18 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         jScrollPane1.setViewportView(TablaAdmin);
         TablaAdmin.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jPanel4.setBackground(new java.awt.Color(102, 0, 255));
+        jPanel4.setBackground(new java.awt.Color(153, 0, 255));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         GestProyParticipante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         GestProyParticipante.setText("GESTIONAR PROYECTOS COMO PARTICIPANTE");
         GestProyParticipante.setContentAreaFilled(false);
         GestProyParticipante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        GestProyParticipante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestProyParticipanteActionPerformed(evt);
+            }
+        });
         jPanel4.add(GestProyParticipante, java.awt.BorderLayout.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -242,6 +246,10 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
     private void BntGesProyecAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BntGesProyecAdminMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_BntGesProyecAdminMouseEntered
+
+    private void GestProyParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestProyParticipanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GestProyParticipanteActionPerformed
 
     /**
      * @param args the command line arguments
