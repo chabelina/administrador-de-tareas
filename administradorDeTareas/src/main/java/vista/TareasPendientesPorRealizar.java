@@ -43,6 +43,10 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        menu_tabla = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         regresar = new javax.swing.JButton();
@@ -60,6 +64,20 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         ComboFiltrar = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+
+        jMenuItem1.setText("opcion1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menu_tabla.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        menu_tabla.add(jMenuItem2);
+
+        jMenu1.setText("jMenu1");
+        menu_tabla.add(jMenu1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -319,6 +337,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         ModificarTareaPersonal modificarTarea = new ModificarTareaPersonal( (java.awt.Frame) this.getParent(), true);
+        modificarTarea.dar_valores_predeterminado(this.datos_user.getId_usuario());
         modificarTarea.setVisible(true);
     }//GEN-LAST:event_ModificarTareaActionPerformed
 
@@ -327,6 +346,10 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         EliminarTarea eliminarTarea = new EliminarTarea(this, true);
         eliminarTarea.setVisible(true);
     }//GEN-LAST:event_BtnEliminarTareaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,6 +397,9 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     public javax.swing.JButton ModificarTarea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
@@ -382,6 +408,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu menu_tabla;
     public javax.swing.JButton regresar;
     private javax.swing.JTable tabla_datos_principal1;
     // End of variables declaration//GEN-END:variables
