@@ -151,12 +151,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel10" alignment="1" pref="412" max="32767" attributes="0"/>
+                      <Component id="jLabel10" alignment="0" pref="412" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel10" alignment="0" pref="47" max="32767" attributes="0"/>
+                      <Component id="jLabel10" alignment="1" pref="47" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -265,12 +265,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" alignment="1" pref="412" max="32767" attributes="0"/>
+                      <Component id="jLabel5" alignment="0" pref="412" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" alignment="0" pref="47" max="32767" attributes="0"/>
+                      <Component id="jLabel5" alignment="1" pref="47" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -332,7 +332,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="REGRESAR"/>
+                <Property name="text" type="java.lang.String" value="CERRAR SESI&#xd3;N"/>
               </Properties>
             </Component>
           </SubComponents>
