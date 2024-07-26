@@ -20,14 +20,13 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
   /**
    * Creates new form GestionarTareaComoAdministrador
    */
-  DefaultTableModel modelo;
   
   
   public GestionarTareaComoAdministrador() {
     initComponents();
-    
-    modelo = new DefaultTableModel();
   
+    this.setLocationRelativeTo(null);
+    
   }
 
   /**

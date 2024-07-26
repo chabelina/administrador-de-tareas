@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import java.awt.Color;
+
+import layouts.OpcionesGestionarProyectos;
+import layouts.OpcionesGestionarProyectoParticipante;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
@@ -21,43 +24,11 @@ import javax.swing.table.TableColumn;
  */
 public class AdministrarProyectos extends javax.swing.JFrame {
 public ControllerAdministrarProyectos ControllerAdministrarProyectos;
-    /**
-     * Creates new form TareasEliminadas
-     */
-    DefaultTableModel modelo;
+
+
     public AdministrarProyectos() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        ControllerAdministrarProyectos = new ControllerAdministrarProyectos(this);
-        //controller = new Controller(this);
-        
-    modelo = new DefaultTableModel();
-    modelo.addColumn("ID");
-    modelo.addColumn("NOMBRE DEL PROYECTO");
-    this.TablaAdmin.setModel(modelo);
-  
-    TableColumn column = TablaAdmin.getColumnModel().getColumn(0);
-    column.setPreferredWidth(50);
-    column.setMaxWidth(80); 
-    
-    TablaAdmin.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
-    
-    TableColumn column2 = TablaParticipante.getColumnModel().getColumn(0);
-    column2.setPreferredWidth(50);
-    column2.setMaxWidth(80); 
-    
-    TablaParticipante.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
-    
-    
-    JTableHeader theader = TablaAdmin.getTableHeader();
-    JTableHeader theader2 = TablaParticipante.getTableHeader();
-
-    theader.setDefaultRenderer(new GestionEncabezadoTabla());
-    theader2.setDefaultRenderer(new GestionEncabezadoTabla());
-    //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
-    TablaAdmin.setBackground(Color.RED);
-    TablaParticipante.setBackground(Color.RED);
-    
+        this.setExtendedState(this.MAXIMIZED_BOTH);
     }
 
     /**
@@ -238,6 +209,9 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
 
     private void BntGesProyecAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BntGesProyecAdminActionPerformed
         // TODO add your handling code here:
+        
+        OpcionesGestionarProyectos gestionarProyectos = new OpcionesGestionarProyectos(this, true);
+        gestionarProyectos.setVisible(true);
     }//GEN-LAST:event_BntGesProyecAdminActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
@@ -250,6 +224,9 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
 
     private void GestProyParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestProyParticipanteActionPerformed
         // TODO add your handling code here:
+        
+        OpcionesGestionarProyectoParticipante gestionarProyectosParticipante = new OpcionesGestionarProyectoParticipante(this, true);
+        gestionarProyectosParticipante.setVisible(true);
     }//GEN-LAST:event_GestProyParticipanteActionPerformed
 
     /**
