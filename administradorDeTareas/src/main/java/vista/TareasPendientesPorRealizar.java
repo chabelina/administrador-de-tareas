@@ -64,6 +64,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel2.setName(""); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -98,6 +100,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 106, 0, 0);
         jPanel2.add(jLabel1, gridBagConstraints);
@@ -124,11 +127,11 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1116;
-        gridBagConstraints.ipady = 382;
+        gridBagConstraints.ipady = 350;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(19, 106, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(46, 100, 0, 0);
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -242,18 +245,17 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         gridBagConstraints.ipadx = -30;
         gridBagConstraints.ipady = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 5, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(20, 11, 0, 0);
         jPanel2.add(jPanel3, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image (2).png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(420, 34, 14, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 40, 14, 0);
         jPanel2.add(jLabel3, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
