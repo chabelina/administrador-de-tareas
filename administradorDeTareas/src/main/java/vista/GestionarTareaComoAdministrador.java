@@ -4,11 +4,12 @@
  */
 package vista;
 
+import layouts.ModificarTareaAsignada;
+import layouts.AsignarNuevaTarea;
+
 import EstilosComponents.GestionEncabezadoTabla;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-
-
 
 /**
  *
@@ -26,18 +27,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
     initComponents();
     
     modelo = new DefaultTableModel();
-    modelo.addColumn("ID");
-    modelo.addColumn("Nombre de la Tabla");
-    modelo.addColumn("Descripción");
-    modelo.addColumn("Estado");
-    modelo.addColumn("Prioridad");
-    modelo.addColumn("Fecha de Asignación");
-    modelo.addColumn("Fecha Limite");
-    modelo.addColumn("Responsable");
-    this.table_tareas.setModel(modelo);
   
-    JTableHeader theader = table_tareas.getTableHeader();
-    theader.setDefaultRenderer(new GestionEncabezadoTabla());
   }
 
   /**
@@ -53,9 +43,9 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_visualizarMiembros = new javax.swing.JButton();
+        btn_modificarTarea = new javax.swing.JButton();
+        btn_asignarTarea = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -95,36 +85,36 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton1.setBackground(new java.awt.Color(206, 95, 14));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("VISUALIZAR A TODOS LOS MIEMBROS");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_visualizarMiembros.setBackground(new java.awt.Color(206, 95, 14));
+        btn_visualizarMiembros.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_visualizarMiembros.setForeground(new java.awt.Color(255, 255, 255));
+        btn_visualizarMiembros.setText("VISUALIZAR A TODOS LOS MIEMBROS");
+        btn_visualizarMiembros.setBorder(null);
+        btn_visualizarMiembros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_visualizarMiembrosActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 140, 219));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("MAODIFICAR TAREA ASIGNADA");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_modificarTarea.setBackground(new java.awt.Color(0, 140, 219));
+        btn_modificarTarea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_modificarTarea.setForeground(new java.awt.Color(255, 255, 255));
+        btn_modificarTarea.setText("MODIFICAR TAREA ASIGNADA");
+        btn_modificarTarea.setBorder(null);
+        btn_modificarTarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_modificarTareaActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(8, 131, 20));
-        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("ASIGNAR NUEVA TAREA");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_asignarTarea.setBackground(new java.awt.Color(8, 131, 20));
+        btn_asignarTarea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_asignarTarea.setForeground(new java.awt.Color(255, 255, 255));
+        btn_asignarTarea.setText("ASIGNAR NUEVA TAREA");
+        btn_asignarTarea.setBorder(null);
+        btn_asignarTarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_asignarTareaActionPerformed(evt);
             }
         });
 
@@ -185,11 +175,11 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_visualizarMiembros, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_modificarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_asignarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -200,9 +190,9 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_asignarTarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_modificarTarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_visualizarMiembros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,22 +218,30 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
     
   }//GEN-LAST:event_jPanel3MouseClicked
 
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    float[] datos = {1};
-    String[] datos1 = {"feoong ngrs inrh isongs eginsigne signesnigneisgns gsneign siegns goensgisneigsg e iesngse gnei gsegnsoe gnes gose nisegn seognseog "};
-    for(int i=0; i<datos.length; i++){
-      Object[] data = {datos[i],datos1[i]};
-      modelo.addRow(data);
-    }
-  }//GEN-LAST:event_jButton1ActionPerformed
+  private void btn_visualizarMiembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_visualizarMiembrosActionPerformed
+    
+      VisualizarIntegrantes visualizarIntegrantes = new VisualizarIntegrantes();
+      visualizarIntegrantes.setVisible(true);
+      
+      this.dispose();
+      
+  }//GEN-LAST:event_btn_visualizarMiembrosActionPerformed
 
-  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  private void btn_modificarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarTareaActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jButton2ActionPerformed
+    
+    ModificarTareaAsignada modificarTarea = new ModificarTareaAsignada(this, true);
+    modificarTarea.setVisible(true);
+    
+  }//GEN-LAST:event_btn_modificarTareaActionPerformed
 
-  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+  private void btn_asignarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarTareaActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jButton3ActionPerformed
+    
+    AsignarNuevaTarea asignarTarea = new AsignarNuevaTarea(this, true);
+    asignarTarea.setVisible(true);
+    
+  }//GEN-LAST:event_btn_asignarTareaActionPerformed
 
   /**
    * @param args the command line arguments
@@ -281,9 +279,9 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_asignarTarea;
+    private javax.swing.JButton btn_modificarTarea;
+    private javax.swing.JButton btn_visualizarMiembros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

@@ -15,7 +15,10 @@ public class ModificarTareaAsignada extends javax.swing.JDialog {
    */
   public ModificarTareaAsignada(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
+    
     initComponents();
+    
+    this.setLocationRelativeTo(null);
   }
 
   /**

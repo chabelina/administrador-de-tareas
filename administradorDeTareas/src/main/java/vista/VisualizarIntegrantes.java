@@ -24,8 +24,8 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
    */
   DefaultTableModel modelo;
   
-  
   public VisualizarIntegrantes() {
+      
     initComponents();
     
     modelo = new DefaultTableModel();

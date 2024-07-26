@@ -16,6 +16,9 @@ public class AsignarNuevaTarea extends javax.swing.JDialog {
   public AsignarNuevaTarea(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
     initComponents();
+    
+    this.setLocationRelativeTo(null);
+    
   }
 
   /**
