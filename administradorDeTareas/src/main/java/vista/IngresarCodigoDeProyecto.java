@@ -35,6 +35,7 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -47,7 +48,10 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(19, 30, 35));
-        jPanel1.setLayout(null);
+        jPanel1.setMaximumSize(new java.awt.Dimension(1333, 666));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1333, 666));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -82,8 +86,14 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(292, 243, 659, 62);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 490;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(163, 202, 0, 381);
+        jPanel1.add(jPanel2, gridBagConstraints);
 
         jPanel4.setBackground(new java.awt.Color(0, 135, 103));
 
@@ -108,8 +118,13 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
             .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel1.add(jPanel4);
-        jPanel4.setBounds(403, 323, 412, 41);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 281;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 313, 290, 0);
+        jPanel1.add(jPanel4, gridBagConstraints);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,8 +132,12 @@ public class IngresarCodigoDeProyecto extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 20, 60, 60);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

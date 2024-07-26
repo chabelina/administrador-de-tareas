@@ -54,6 +54,9 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(19, 30, 35));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1333, 666));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 

@@ -66,7 +66,9 @@ public Controller controller;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1475, 666));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1333, 666));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -166,7 +168,7 @@ public Controller controller;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1339, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

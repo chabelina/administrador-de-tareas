@@ -50,6 +50,9 @@ public class Login extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1333, 666));
 
         jPanel6.setBackground(new java.awt.Color(19, 30, 35));
+        jPanel6.setMaximumSize(new java.awt.Dimension(1333, 666));
+        jPanel6.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel6.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));

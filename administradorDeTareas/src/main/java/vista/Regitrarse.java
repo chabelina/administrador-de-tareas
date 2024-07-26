@@ -51,7 +51,9 @@ public class Regitrarse extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1333, 666));
 
         jPanel6.setBackground(new java.awt.Color(19, 30, 35));
-        jPanel6.setPreferredSize(new java.awt.Dimension(1294, 687));
+        jPanel6.setMaximumSize(new java.awt.Dimension(1333, 666));
+        jPanel6.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel6.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -303,11 +305,11 @@ public class Regitrarse extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1323, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

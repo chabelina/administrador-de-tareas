@@ -56,9 +56,14 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         TablaParticipante = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1333, 666));
+        setMinimumSize(new java.awt.Dimension(1333, 666));
+        setPreferredSize(new java.awt.Dimension(1333, 666));
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1475, 666));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1333, 666));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1333, 666));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -137,12 +142,12 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1473;
-        gridBagConstraints.ipady = 123;
+        gridBagConstraints.ipadx = 1114;
+        gridBagConstraints.ipady = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(12, 85, 0, 237);
+        gridBagConstraints.insets = new java.awt.Insets(12, 85, 0, 118);
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
         jPanel4.setBackground(new java.awt.Color(153, 0, 255));
@@ -166,7 +171,7 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.ipadx = 46;
         gridBagConstraints.ipady = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 64, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(15, 64, 0, 0);
         jPanel2.add(jPanel4, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -176,6 +181,7 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 64, 0, 0);
         jPanel2.add(jLabel1, gridBagConstraints);
@@ -187,6 +193,7 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(16, 64, 0, 0);
         jPanel2.add(jLabel2, gridBagConstraints);
@@ -212,26 +219,23 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1473;
-        gridBagConstraints.ipady = 123;
+        gridBagConstraints.ipadx = 1114;
+        gridBagConstraints.ipady = 130;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(18, 85, 150, 237);
+        gridBagConstraints.insets = new java.awt.Insets(18, 85, 121, 118);
         jPanel2.add(jScrollPane2, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1811, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
