@@ -100,7 +100,7 @@ public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("ingresa el ID del proyecto:");
+        jLabel17.setText("Ingresa el ID del Proyecto:");
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 

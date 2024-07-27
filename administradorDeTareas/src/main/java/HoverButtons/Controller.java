@@ -16,7 +16,6 @@ public class Controller implements MouseListener {
     private final TareasEliminadas view;
 
     public final void events(){
-      view.regresar.addMouseListener(this);
       view.recuperar.addMouseListener(this);
     }
     public Controller( TareasEliminadas view){
@@ -44,10 +43,7 @@ public class Controller implements MouseListener {
        
         Object evt = e.getSource();
         
-        if(evt.equals(view.regresar)){
-         changebackground(view.jPanel1,new Color(149, 165, 166 ));
-        
-        }else if(evt.equals(view.recuperar)){
+        if(evt.equals(view.recuperar)){
         changebackground(view.jPanel3,new Color(149, 165, 166  ));
         }
     }
@@ -56,9 +52,7 @@ public class Controller implements MouseListener {
     public void mouseExited(MouseEvent e) {
         Object evt = e.getSource();
         
-        if(evt.equals(view.regresar)){
-          changebackground(view.jPanel1,new Color(251, 252, 252));
-        }else if(evt.equals(view.recuperar)){  
+        if(evt.equals(view.recuperar)){  
           changebackground(view.jPanel3,new Color(251, 252, 252 ));    
         } 
     }

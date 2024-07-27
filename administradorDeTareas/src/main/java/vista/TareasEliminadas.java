@@ -9,7 +9,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
-import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
@@ -19,7 +18,7 @@ import EstilosComponents.GestionEncabezadoTabla;
  * @author HP
  */
 public class TareasEliminadas extends javax.swing.JFrame {
-public Controller controller;
+    public Controller controller;
     /**
      * Creates new form TareasEliminadas
      */
@@ -28,21 +27,7 @@ public Controller controller;
         initComponents();
         this.setLocationRelativeTo(null);
         controller = new Controller(this);
-        
-    modelo = new DefaultTableModel();
-    modelo.addColumn("ID");
-    modelo.addColumn("MARCADO");
-    modelo.addColumn("NOMBRE DE LA TAREA");
-    modelo.addColumn("DESCRIPCION");
-    modelo.addColumn("PRIORIDAD");
-    modelo.addColumn("FECHA LIMITE");
-    modelo.addColumn("FECHA DE ELIMINACION");
-    this.jTable1.setModel(modelo);
-  
-    JTableHeader theader = jTable1.getTableHeader();
-    theader.setDefaultRenderer(new GestionEncabezadoTabla());
-    //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
-    jTable1.setBackground(Color.WHITE);
+       
     }
 
     /**
@@ -53,16 +38,14 @@ public Controller controller;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        regresar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         recuperar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        icono_Regresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,31 +53,7 @@ public Controller controller;
         jPanel2.setMaximumSize(new java.awt.Dimension(1333, 666));
         jPanel2.setMinimumSize(new java.awt.Dimension(1333, 666));
         jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        regresar.setText("REGRESAR");
-        regresar.setContentAreaFilled(false);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        regresar.setFocusPainted(false);
-        regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regresarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(regresar, java.awt.BorderLayout.CENTER);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 28;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(49, 64, 0, 0);
-        jPanel2.add(jPanel1, gridBagConstraints);
+        jPanel2.setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setToolTipText("");
@@ -112,27 +71,14 @@ public Controller controller;
         });
         jPanel3.add(recuperar, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 64, 0, 0);
-        jPanel2.add(jPanel3, gridBagConstraints);
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(64, 97, 226, 40);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TAREAS ELIMINADAS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 64, 0, 0);
-        jPanel2.add(jLabel1, gridBagConstraints);
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(64, 66, 187, 25);
 
         jTable1.setBackground(new java.awt.Color(19, 30, 35));
         jTable1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -150,18 +96,18 @@ public Controller controller;
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1204;
-        gridBagConstraints.ipady = 424;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(22, 60, 42, 59);
-        jPanel2.add(jScrollPane1, gridBagConstraints);
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(60, 159, 1214, 465);
+
+        icono_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        icono_Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono_Regresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icono_RegresarMouseClicked(evt);
+            }
+        });
+        jPanel2.add(icono_Regresar);
+        icono_Regresar.setBounds(30, 0, 60, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,9 +133,12 @@ public Controller controller;
         // TODO add your handling code here:
     }//GEN-LAST:event_recuperarActionPerformed
 
-    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+    private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_regresarActionPerformed
+
+//        this.Menu.setVisible(true);
+//        this.setVisible(false);
+    }//GEN-LAST:event_icono_RegresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -227,13 +176,12 @@ public Controller controller;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel icono_Regresar;
     private javax.swing.JLabel jLabel1;
-    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     public javax.swing.JButton recuperar;
-    public javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
 }

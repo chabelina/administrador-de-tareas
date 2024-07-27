@@ -117,7 +117,7 @@ public class Regitrarse extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Contraseña");
+        jLabel4.setText("Contraseña:");
 
         txt_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +167,7 @@ public class Regitrarse extends javax.swing.JFrame {
         boton_crearcuenta.setBackground(new java.awt.Color(154, 43, 255));
         boton_crearcuenta.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         boton_crearcuenta.setForeground(new java.awt.Color(255, 255, 255));
-        boton_crearcuenta.setText("Crear cuenta");
+        boton_crearcuenta.setText("CREAR CUENTA");
         boton_crearcuenta.setBorder(null);
         boton_crearcuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_crearcuenta.addActionListener(new java.awt.event.ActionListener() {

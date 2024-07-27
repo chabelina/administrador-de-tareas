@@ -17,6 +17,8 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   private CrearUnProyecto new_proyect;
   private TareasPendientesPorRealizar gestionar_tarea;
   private AdministrarProyectos administrar_proyecto;
+  
+  private Login MenuLogin;
           
   private controllerUsuario user;
   
@@ -26,10 +28,14 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
    */
   public PrincipalesOpciones() {
     initComponents();
+    MenuLogin = new Login();
+    
+    
     this.setExtendedState(this.MAXIMIZED_BOTH);
   }
   public PrincipalesOpciones(int id_user){
     initComponents();
+    MenuLogin = new Login();
     this.id_usuario = id_user;
     this.setExtendedState(this.MAXIMIZED_BOTH);
   }
@@ -251,6 +257,11 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("CERRAR SESIÓN");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -393,6 +404,14 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        
+        this.MenuLogin.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jLabel4MouseClicked
 
   /**
    * @param args the command line arguments

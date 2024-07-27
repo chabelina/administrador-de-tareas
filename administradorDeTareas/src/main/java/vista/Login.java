@@ -158,7 +158,7 @@ public class Login extends javax.swing.JFrame {
         boton_ingresar1.setBackground(new java.awt.Color(154, 43, 255));
         boton_ingresar1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         boton_ingresar1.setForeground(new java.awt.Color(255, 255, 255));
-        boton_ingresar1.setText("Iniciar Sesión");
+        boton_ingresar1.setText("INICIAR SESIÓN");
         boton_ingresar1.setBorder(null);
         boton_ingresar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_ingresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class Login extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(117, 117, 117)
                 .addComponent(boton_ingresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

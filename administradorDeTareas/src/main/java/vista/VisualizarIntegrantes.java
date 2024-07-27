@@ -70,7 +70,7 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(949, 24, 361, 34);
+        jButton3.setBounds(1070, 30, 230, 34);
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 

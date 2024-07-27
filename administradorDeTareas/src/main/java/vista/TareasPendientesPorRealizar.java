@@ -126,7 +126,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         ModificarTarea.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ModificarTarea.setText("Modificar Tarea");
+        ModificarTarea.setText("MODIFICAR TAREA");
         ModificarTarea.setContentAreaFilled(false);
         ModificarTarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ModificarTarea.setFocusPainted(false);
@@ -143,7 +143,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel5.setLayout(new java.awt.BorderLayout());
 
         BtnAgregarNuevaTarea.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnAgregarNuevaTarea.setText("Agregar Nueva Tarea");
+        BtnAgregarNuevaTarea.setText("AGREGAR NUEVA TAREA");
         BtnAgregarNuevaTarea.setContentAreaFilled(false);
         BtnAgregarNuevaTarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnAgregarNuevaTarea.setFocusPainted(false);
@@ -152,15 +152,15 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
                 BtnAgregarNuevaTareaActionPerformed(evt);
             }
         });
-        jPanel5.add(BtnAgregarNuevaTarea, java.awt.BorderLayout.CENTER);
+        jPanel5.add(BtnAgregarNuevaTarea, java.awt.BorderLayout.PAGE_START);
 
         jPanel2.add(jPanel5);
-        jPanel5.setBounds(419, 126, 181, 39);
+        jPanel5.setBounds(400, 130, 220, 39);
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
         BtnEliminarTarea.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnEliminarTarea.setText("Eliminar Tarea");
+        BtnEliminarTarea.setText("ELIMINAR TAREA");
         BtnEliminarTarea.setContentAreaFilled(false);
         BtnEliminarTarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnEliminarTarea.setFocusPainted(false);
@@ -177,7 +177,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel7.setLayout(new java.awt.BorderLayout());
 
         BtnLimpiarListaTareas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnLimpiarListaTareas.setText("Limpiar Lista de Tareas");
+        BtnLimpiarListaTareas.setText("LIMPIAR TODO");
         BtnLimpiarListaTareas.setContentAreaFilled(false);
         BtnLimpiarListaTareas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnLimpiarListaTareas.setFocusPainted(false);
