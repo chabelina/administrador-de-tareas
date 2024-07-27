@@ -22,6 +22,8 @@ import HoverButtons.ControllerGestionarTareas;
 import java.util.List;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
+
 public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     
     public ControllerGestionarTareas ControllerGestionarTareas;
@@ -35,8 +37,9 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     
     public TareasPendientesPorRealizar() {
         initComponents();
-        
+        tareasEliminadas = new TareasEliminadas();
         Menu = new PrincipalesOpciones();
+        
         
         this.setLocationRelativeTo(null);
         ControllerGestionarTareas = new ControllerGestionarTareas(this); 
@@ -70,7 +73,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         BtnLimpiarListaTareas = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         ComboFiltrar = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        papelera = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jMenuItem1.setText("opcion1");
@@ -198,17 +201,19 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(1243, 123, 109, 33);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image (2).png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        papelera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        papelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image (2).png"))); // NOI18N
+        papelera.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        papelera.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                papeleraMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(1250, 580, 90, 88);
+        jPanel2.add(papelera);
+        papelera.setBounds(1250, 580, 90, 88);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -306,12 +311,13 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void papeleraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_papeleraMouseClicked
         // TODO add your handling code here:
         
+        this.tareasEliminadas.setVisible(true);
+        this.setVisible(false);
         
-        
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_papeleraMouseClicked
 
     /**
      * @param args the command line arguments
@@ -359,7 +365,6 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     public javax.swing.JButton ModificarTarea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -371,6 +376,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu menu_tabla;
+    private javax.swing.JLabel papelera;
     private javax.swing.JTable tabla_datos_principal1;
     // End of variables declaration//GEN-END:variables
 }

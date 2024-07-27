@@ -16,7 +16,9 @@ import javax.swing.table.JTableHeader;
  * @author Usuario
  */
 public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
-
+    
+    private AdministrarProyectos MenuProyectos;
+    
   /**
    * Creates new form GestionarTareaComoAdministrador
    */
@@ -25,6 +27,8 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
   public GestionarTareaComoAdministrador() {
     initComponents();
   
+    MenuProyectos = new AdministrarProyectos();
+    
     this.setLocationRelativeTo(null);
     
   }
@@ -48,7 +52,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_tareas = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
+        icono_Regresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +69,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         btn_visualizarMiembros.setForeground(new java.awt.Color(255, 255, 255));
         btn_visualizarMiembros.setText("VISUALIZAR A TODOS LOS MIEMBROS");
         btn_visualizarMiembros.setBorder(null);
+        btn_visualizarMiembros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_visualizarMiembros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_visualizarMiembrosActionPerformed(evt);
@@ -84,6 +89,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         btn_modificarTarea.setForeground(new java.awt.Color(255, 255, 255));
         btn_modificarTarea.setText("MODIFICAR TAREA ASIGNADA");
         btn_modificarTarea.setBorder(null);
+        btn_modificarTarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_modificarTarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modificarTareaActionPerformed(evt);
@@ -103,6 +109,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         btn_asignarTarea.setForeground(new java.awt.Color(255, 255, 255));
         btn_asignarTarea.setText("ASIGNAR NUEVA TAREA");
         btn_asignarTarea.setBorder(null);
+        btn_asignarTarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_asignarTarea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_asignarTareaActionPerformed(evt);
@@ -187,11 +194,11 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 46, 67, 38);
         jPanel1.add(jScrollPane2, gridBagConstraints);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        icono_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        icono_Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono_Regresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                icono_RegresarMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -200,7 +207,7 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 40, 0, 0);
-        jPanel1.add(jLabel3, gridBagConstraints);
+        jPanel1.add(icono_Regresar, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,13 +248,13 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_visualizarMiembrosActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
         // TODO add your handling code here:
 
-        this.Menu.setVisible(true);
+        this.MenuProyectos.setVisible(true);
         this.setVisible(false);
 
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_icono_RegresarMouseClicked
 
   /**
    * @param args the command line arguments
@@ -288,9 +295,9 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btn_asignarTarea;
     private javax.swing.JButton btn_modificarTarea;
     private javax.swing.JButton btn_visualizarMiembros;
+    private javax.swing.JLabel icono_Regresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

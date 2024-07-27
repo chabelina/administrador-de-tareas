@@ -131,6 +131,7 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         btn_crear.setForeground(new java.awt.Color(255, 255, 255));
         btn_crear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_crear.setText("CREAR PROYECTO");
+        btn_crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_crear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_crearMouseClicked(evt);

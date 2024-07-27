@@ -169,6 +169,7 @@ public class Regitrarse extends javax.swing.JFrame {
         boton_crearcuenta.setForeground(new java.awt.Color(255, 255, 255));
         boton_crearcuenta.setText("Crear cuenta");
         boton_crearcuenta.setBorder(null);
+        boton_crearcuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_crearcuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_crearcuentaActionPerformed(evt);
@@ -180,6 +181,7 @@ public class Regitrarse extends javax.swing.JFrame {
 
         bnt_inciar.setForeground(new java.awt.Color(255, 255, 255));
         bnt_inciar.setText("Iniciar Sesion.");
+        bnt_inciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bnt_inciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bnt_inciarMouseClicked(evt);

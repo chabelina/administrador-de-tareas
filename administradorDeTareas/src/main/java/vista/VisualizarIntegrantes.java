@@ -18,7 +18,9 @@ import javax.swing.table.TableColumn;
  * @author Usuario
  */
 public class VisualizarIntegrantes extends javax.swing.JFrame {
-
+    
+    private GestionarTareaComoAdministrador MenuAdministrador;
+    
   /**
    * Creates new form GestionarTareaComoAdministrador
    */
@@ -28,6 +30,7 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
       
     initComponents();
     
+    MenuAdministrador = new GestionarTareaComoAdministrador();
     modelo = new DefaultTableModel();
   }
 
@@ -39,16 +42,13 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        icono_Regresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,62 +56,21 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(1333, 666));
         jPanel1.setMinimumSize(new java.awt.Dimension(1333, 666));
         jPanel1.setPreferredSize(new java.awt.Dimension(1333, 666));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("REGRESAR");
-
-        jLabel6.setText("icono");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 46, 0, 0);
-        jPanel1.add(jPanel3, gridBagConstraints);
+        jPanel1.setLayout(null);
 
         jButton3.setBackground(new java.awt.Color(8, 131, 20));
         jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("ELIMINAR INTEGRANTES");
         jButton3.setBorder(null);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 184;
-        gridBagConstraints.ipady = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 781, 0, 44);
-        jPanel1.add(jButton3, gridBagConstraints);
+        jPanel1.add(jButton3);
+        jButton3.setBounds(949, 24, 361, 34);
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -148,14 +107,18 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 1229;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 46, 114, 44);
-        jPanel1.add(jPanel2, gridBagConstraints);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(26, 76, 1280, 486);
+
+        icono_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        icono_Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono_Regresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icono_RegresarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(icono_Regresar);
+        icono_Regresar.setBounds(30, 10, 60, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,13 +134,17 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-    
-  }//GEN-LAST:event_jPanel3MouseClicked
-
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
+        // TODO add your handling code here:
+
+        this.MenuAdministrador.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_icono_RegresarMouseClicked
 
   /**
    * @param args the command line arguments
@@ -216,12 +183,10 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel icono_Regresar;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

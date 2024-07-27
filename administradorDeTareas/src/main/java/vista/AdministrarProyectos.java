@@ -30,6 +30,9 @@ public class AdministrarProyectos extends javax.swing.JFrame {
 
     public AdministrarProyectos() {
         initComponents();
+        
+        Menu = new PrincipalesOpciones();
+        
         this.setExtendedState(this.MAXIMIZED_BOTH);
     }
 
@@ -54,7 +57,7 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaParticipante = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
+        icono_Regresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1333, 666));
@@ -202,11 +205,11 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 85, 120, 118);
         jPanel2.add(jScrollPane2, gridBagConstraints);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        icono_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        icono_Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono_Regresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                icono_RegresarMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -214,7 +217,7 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 40, 0, 0);
-        jPanel2.add(jLabel3, gridBagConstraints);
+        jPanel2.add(icono_Regresar, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,13 +255,13 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         gestionarProyectosParticipante.setVisible(true);
     }//GEN-LAST:event_GestProyParticipanteActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
         // TODO add your handling code here:
 
         this.Menu.setVisible(true);
         this.setVisible(false);
         
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_icono_RegresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -301,9 +304,9 @@ public class AdministrarProyectos extends javax.swing.JFrame {
     public javax.swing.JButton GestProyParticipante;
     private javax.swing.JTable TablaAdmin;
     private javax.swing.JTable TablaParticipante;
+    private javax.swing.JLabel icono_Regresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
