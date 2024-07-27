@@ -322,11 +322,11 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_regresarActionPerformed
 
     private void BtnAgregarNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarNuevaTareaActionPerformed
-        // TODO add your handling code here:
-        
+
         AgregarNuevaTareaPersonal agregarTarea = new AgregarNuevaTareaPersonal(this, true);
+        agregarTarea.valor_insert(this.datos_user.getId_usuario());
         agregarTarea.setVisible(true);
-        
+        this.agregar_datos_tabla();
     }//GEN-LAST:event_BtnAgregarNuevaTareaActionPerformed
 
     private void BtnLimpiarListaTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarListaTareasActionPerformed

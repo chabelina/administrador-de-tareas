@@ -4,12 +4,16 @@
  */
 package layouts;
 
+import controller.ControllerProyectos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
  */
 public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
-
+   private int id_user;
+   private ControllerProyectos conexion = new ControllerProyectos();
   /**
    * Creates new form AgregarNuevaTareaPersonal
    */
@@ -20,7 +24,9 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     this.setLocationRelativeTo(null);
     
   }
-
+  public void valor_insert(int id){
+      this.id_user = id;
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,15 +40,15 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Clases.PanelRound();
-        jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        boton_cerrar = new javax.swing.JButton();
+        opciones = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         panelRound2 = new Clases.PanelRound();
-        jButton2 = new javax.swing.JButton();
+        boton_guardar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         panelRound6 = new Clases.PanelRound();
-        jTextField1 = new javax.swing.JTextField();
+        txt_nombre_archivo = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         panelRound3 = new Clases.PanelRound();
@@ -50,7 +56,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         jPanel9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         panelRound7 = new Clases.PanelRound();
-        jTextField2 = new javax.swing.JTextField();
+        txt_desc_archivo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -87,24 +93,24 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound1.setRoundTopRight(30);
         panelRound1.setLayout(new java.awt.BorderLayout());
 
-        jButton1.setBackground(new java.awt.Color(217, 217, 217));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setText("Cancelar");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        boton_cerrar.setBackground(new java.awt.Color(217, 217, 217));
+        boton_cerrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        boton_cerrar.setText("Cancelar");
+        boton_cerrar.setContentAreaFilled(false);
+        boton_cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                boton_cerrarActionPerformed(evt);
             }
         });
-        panelRound1.add(jButton1, java.awt.BorderLayout.CENTER);
+        panelRound1.add(boton_cerrar, java.awt.BorderLayout.CENTER);
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALTA", "MEDIA", "BAJA" }));
-        jComboBox1.setBorder(null);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        opciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALTA", "MEDIA", "BAJA" }));
+        opciones.setBorder(null);
+        opciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                opcionesActionPerformed(evt);
             }
         });
 
@@ -128,17 +134,17 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound2.setRoundTopRight(30);
         panelRound2.setLayout(new java.awt.BorderLayout());
 
-        jButton2.setBackground(new java.awt.Color(217, 217, 217));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setText("Guardar Tarea");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        boton_guardar.setBackground(new java.awt.Color(217, 217, 217));
+        boton_guardar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        boton_guardar.setText("Guardar Tarea");
+        boton_guardar.setContentAreaFilled(false);
+        boton_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                boton_guardarActionPerformed(evt);
             }
         });
-        panelRound2.add(jButton2, java.awt.BorderLayout.CENTER);
+        panelRound2.add(boton_guardar, java.awt.BorderLayout.CENTER);
 
         jPanel8.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -153,8 +159,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound6.setRoundTopRight(30);
         panelRound6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBorder(null);
-        panelRound6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 420, 40));
+        txt_nombre_archivo.setBorder(null);
+        panelRound6.add(txt_nombre_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 420, 40));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -222,8 +228,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound7.setRoundTopRight(30);
         panelRound7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setBorder(null);
-        panelRound7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 430, 60));
+        txt_desc_archivo.setBorder(null);
+        panelRound7.add(txt_desc_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 430, 60));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -271,7 +277,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
                                 .addComponent(jLabel13))
                             .addGroup(panelRound4Layout.createSequentialGroup()
                                 .addGap(100, 100, 100)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelRound4Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,7 +309,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelRound4Layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,17 +336,30 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_jButton1ActionPerformed
+  private void boton_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cerrarActionPerformed
+    this.dispose();
+  }//GEN-LAST:event_boton_cerrarActionPerformed
 
-  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_jButton2ActionPerformed
+  private void boton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardarActionPerformed
+    String nombre = this.txt_nombre_archivo.getText();
+    String desc = this.txt_desc_archivo.getText();
+    String opcion = this.opciones.getSelectedItem().toString();
+    if(nombre == "" || desc == ""){
+        JOptionPane.showMessageDialog(null,"COMPLETE TODOS LOS CAMPOS","ERROR DE CAMPOS",1);
+        return;
+    }
+    int valor = this.conexion.crear_nueva_tarea(id_user, nombre, desc, opcion);
+    if(valor == -1){
+        JOptionPane.showMessageDialog(null,"ERROR AL GUARDAR LOS DATOS","ERROR",2);
+    }else{
+        JOptionPane.showMessageDialog(null,"SU TAREA SE GUARDO CON EXITO","EXITO",3);
+        this.dispose();
+    }
+  }//GEN-LAST:event_boton_guardarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_opcionesActionPerformed
 
   /**
    * @param args the command line arguments
@@ -385,9 +404,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton boton_cerrar;
+    private javax.swing.JButton boton_guardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -399,13 +417,14 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JComboBox<String> opciones;
     private Clases.PanelRound panelRound1;
     private Clases.PanelRound panelRound2;
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
     private Clases.PanelRound panelRound6;
     private Clases.PanelRound panelRound7;
+    private javax.swing.JTextField txt_desc_archivo;
+    private javax.swing.JTextField txt_nombre_archivo;
     // End of variables declaration//GEN-END:variables
 }

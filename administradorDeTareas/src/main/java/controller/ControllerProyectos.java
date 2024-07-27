@@ -100,5 +100,17 @@ public class ControllerProyectos {
         }
         return valor;
     }
-    
+    public int crear_nueva_tarea(int id_user,String nombre,String descripcion,String prioridad){
+        int valor = -1;
+        try {
+            String consulta = "INSERT INTO `tareaspersonales` (`id_usuario`, `nombre`, `descripcion`, `prioridad`) VALUES ('"+id_user+"', '"+nombre+"', '"+descripcion+"', '"+prioridad+"')";
+            System.out.println(consulta);
+            String resultado = this.conexion.insert_date(consulta);
+            valor = Integer.parseInt(resultado);
+            //valor = 1;
+        } catch (Exception e) {
+            valor = -1;
+        }
+        return valor;
+    }
 }
