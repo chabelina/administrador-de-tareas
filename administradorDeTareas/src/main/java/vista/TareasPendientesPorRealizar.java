@@ -317,11 +317,9 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void papeleraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_papeleraMouseClicked
-        // TODO add your handling code here:
-        
         this.tareasEliminadas.setVisible(true);
         this.setVisible(false);
-        
+        this.tareasEliminadas.obtenerVentanAnterior(this);
     }//GEN-LAST:event_papeleraMouseClicked
 
   private void ComboFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboFiltrarActionPerformed

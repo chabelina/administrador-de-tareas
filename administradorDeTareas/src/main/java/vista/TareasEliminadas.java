@@ -19,6 +19,7 @@ import EstilosComponents.GestionEncabezadoTabla;
  */
 public class TareasEliminadas extends javax.swing.JFrame {
     public Controller controller;
+    public TareasPendientesPorRealizar tareasPersonales;
     /**
      * Creates new form TareasEliminadas
      */
@@ -28,6 +29,10 @@ public class TareasEliminadas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         controller = new Controller(this);
        
+    }
+    
+    public void obtenerVentanAnterior(TareasPendientesPorRealizar v1){
+      this.tareasPersonales = v1;
     }
 
     /**
@@ -134,10 +139,8 @@ public class TareasEliminadas extends javax.swing.JFrame {
     }//GEN-LAST:event_recuperarActionPerformed
 
     private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
-        // TODO add your handling code here:
-
-//        this.Menu.setVisible(true);
-//        this.setVisible(false);
+        this.tareasPersonales.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_icono_RegresarMouseClicked
 
     /**
