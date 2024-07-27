@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 public class ModificarTareaPersonal extends javax.swing.JDialog {
     private ControllerProyectos conexion = new ControllerProyectos();
     private int id_user;
+    private int id_tarea;
     private boolean activo = false;
   /**
    * Creates new form ModificarTareaPersonal
@@ -426,9 +427,13 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
 
   private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
     if(this.activo){
+        int valor = 0;
         String nombre = this.txt_nombre_tarea.getText();
         String descripcion = this.txt_descripcion_tarea.getText();
-        
+        valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion);
+        //JOptionPane.showConfirmDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
+        JOptionPane.showMessageDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
+        this.dispose();
     }else{
         JOptionPane.showMessageDialog(null,"Campo vacio id");
     }
@@ -447,8 +452,10 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
             this.txt_nombre_tarea.setText( datos[2] );
             this.txt_descripcion_tarea.setText(datos[3]);
             this.activo = true;
+            this.id_tarea = Integer.parseInt(id_ingresado);
         } catch (Exception e){
             this.activo = false;
+            //JOptionPane.showConfirmDialog(null, "Por favor ingrese de manera correcta los campos");
             JOptionPane.showMessageDialog(null,"Por favor ingrese de manera correcta los campos");
         };
         

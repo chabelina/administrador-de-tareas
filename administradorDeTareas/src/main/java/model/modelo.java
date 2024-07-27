@@ -74,6 +74,25 @@ public class modelo {
         }
         return respuesta;
     }
+    public int Ubdate_date(String consulta){
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet res = null;
+        int respuesta;
+        int idGenerado = 0;
+        try {
+            con = this.conectar();
+            ps = con.prepareStatement(consulta,Statement.RETURN_GENERATED_KEYS);
+            ps.executeUpdate();
+            System.out.println("Valor agregado correctamenre");
+            respuesta = 1;
+        } catch (SQLException ex) {
+            System.out.println("r: "+ex);
+            Logger.getLogger(modelo.class.getName()).log(Level.SEVERE, null, ex);
+            respuesta = -1;
+        }
+        return respuesta;
+    }
     public String insert_date(String consulta){
         Connection con = null;
         PreparedStatement ps = null;

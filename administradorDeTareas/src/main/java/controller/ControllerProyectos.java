@@ -88,4 +88,17 @@ public class ControllerProyectos {
         String[] datos = this.conexion.valores_array(consulta).get(0);
         return datos;
     }
+    public int actualizar_cambios(int id,String nombre,String descr){
+        int valor = 0;
+        try {
+            String consulta = "UPDATE `tareaspersonales` SET `nombre` = '"+nombre+"', `descripcion` = '"+descr+"' WHERE (`id` = "+id+");";
+            this.conexion.Ubdate_date(consulta);
+            valor = 1;
+        } catch (Exception e) {
+            System.out.println("ocurrio un error al actualizar");
+            valor = -1;
+        }
+        return valor;
+    }
+    
 }

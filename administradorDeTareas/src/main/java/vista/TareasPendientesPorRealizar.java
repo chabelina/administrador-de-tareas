@@ -339,6 +339,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         ModificarTareaPersonal modificarTarea = new ModificarTareaPersonal( (java.awt.Frame) this.getParent(), true);
         modificarTarea.dar_valores_predeterminado(this.datos_user.getId_usuario());
         modificarTarea.setVisible(true);
+        this.agregar_datos_tabla();
     }//GEN-LAST:event_ModificarTareaActionPerformed
 
     private void BtnEliminarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarTareaActionPerformed
