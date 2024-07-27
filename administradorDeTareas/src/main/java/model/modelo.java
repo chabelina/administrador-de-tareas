@@ -30,6 +30,8 @@ public class modelo {
         // Constructor vacío
     }
     
+    // ESTE METODO CONECTA NETBEANS CON LA BASE DE DATOS PERO ANTES DEBES TENER
+    // LAS CREDENCIALES DE LA BASE DE DATOS.
     public Connection conectar() {
         try {
             Class.forName(this.driver);
@@ -40,22 +42,11 @@ public class modelo {
         }
         return conexion;
     }
-
-    public void validador(){
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet res = null;
-        try {
-            con = this.conectar();
-            ps = con.prepareStatement("select validador_cuenta('75276127', 'master123') as datos");
-            res = ps.executeQuery();
-            if(res.next()){
-                System.out.println(res.getString("datos"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(modelo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
+    // EJECUTAR UNA CONSULTA QUE LLAMA A UNA FUNCIÓN EJEMPLO "SELECT NOMBRE_FUNCION();"
+    // SIEMPRE Y CUANDO LA FUNCIÓN RETORNE UN SOLO VALOR, SEA NUMERO O STRIGN
+    
+    // EL VALOR QUE RETORNA LA FUNCIÓN TAMBIÉN LA RETORNA EL METODO
     public String retornar_columna(String consulta){
         Connection con = null;
         PreparedStatement ps = null;
@@ -74,6 +65,13 @@ public class modelo {
         }
         return respuesta;
     }
+    
+    // ESTE METODO SOLO EJECUTA UNA CONSULTA QUE MODIFICA EL REGISTRO DE CUALQUIER
+    // TABLA. La tabla lo tienes que especificar en la consulta
+    
+    // ejemplo: UPDATE nombre_de_la_tabla SET columna1 = valor1 WHERE usuario.id = 1;
+    
+    // retorna 1 si la modificación se realizó correctamente caso contrario -1 
     public int Ubdate_date(String consulta){
         Connection con = null;
         PreparedStatement ps = null;
@@ -93,6 +91,12 @@ public class modelo {
         }
         return respuesta;
     }
+    
+    // este método ejecuta una consulta para insertar datos dentro de una tabla
+    // cualquiera. la tabla al cual vas insertar datos debe estar especificada
+    // en la consulta.
+    
+    // retorna el id que fue asignado al dato que acabas de insertar.
     public String insert_date(String consulta){
         Connection con = null;
         PreparedStatement ps = null;
@@ -116,6 +120,15 @@ public class modelo {
         }
         return respuesta;
     }
+    
+    // EJECUTA LA CONSULTA QUE RETORNA REGISTROS DE UNA TABLA, CADA REGISTRO 
+    // ESTARÁ ALMACENADO DENTRO DE UN STRING[], DE MODO QUE LA TABLA QUE TENGA LOS
+    // CAMPOS ID, NOMBRE, EDAD SE MANCENEN EN EL ORDEN:
+    
+    //STRING[] = {ID, NOMBRE, EDAD};
+    
+    // TODO LOS REGISTROS ESTARÁN ALMACENADOS DENTRO DE UNA LISTA.
+    
     public List<String[]> valores_array(String consulta){
         List<String[]> array_datos = new ArrayList<>();
         Connection conn = null;
@@ -124,13 +137,12 @@ public class modelo {
         int cantidad = 0;
         conn = this.conectar();
         try {
-            //"SELECT * FROM mensajes_totales_publicos_001_z"
             ps = conn.prepareStatement(consulta);
             res = ps.executeQuery();
             ResultSetMetaData meta_data = (ResultSetMetaData) res.getMetaData();
-            //System.out.println(meta_data);
+
             int cantidad_datos = meta_data.getColumnCount();
-            //System.out.println("cantidad columnas : "+cantidad_datos);
+
             while(res.next()){
                 String[] datos_colum = new String[cantidad_datos];
                 for(int i = 0;i < cantidad_datos;i++){

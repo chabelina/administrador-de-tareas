@@ -44,8 +44,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
       this.new_proyect = new CrearUnProyecto(this.user);
       this.gestionar_tarea = new TareasPendientesPorRealizar();
       this.administrar_proyecto = new AdministrarProyectos();
-      this.label_nombre_user.setText(user.getNombre());
-      
+      this.label_nombre_user.setText(user.getNombre());  
   }
   public void set_id_user(int id){
       this.id_usuario = id;
@@ -344,7 +343,6 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         return this.user;
     }
     private void btn_unirseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_unirseMouseClicked
-        this.setForeground(Color.red);
         this.v_codigo.setVisible(true);
         this.v_codigo.setv1(this);
         this.setVisible(false);
@@ -352,7 +350,6 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_unirseMouseClicked
 
     private void btn_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearMouseClicked
-        this.setForeground(Color.red);
         this.new_proyect.setVisible(true);
         this.new_proyect.setv1(this);
         this.setVisible(false);
@@ -361,7 +358,6 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-        this.setForeground(Color.red);
         this.new_proyect.setVisible(true);
         this.new_proyect.setv1(this);
         this.setVisible(false);

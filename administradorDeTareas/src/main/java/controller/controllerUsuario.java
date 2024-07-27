@@ -11,6 +11,7 @@ public class controllerUsuario {
     private String nombre;
     private String email;
     private int id_usuario;
+    
     public controllerUsuario(int id_usuario){
         this.id_usuario = id_usuario;
         List<String[]> datos = conexion.valores_array("SELECT * FROM usuario WHERE id = "+id_usuario+"");
