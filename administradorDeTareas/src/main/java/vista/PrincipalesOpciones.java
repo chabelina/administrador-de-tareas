@@ -69,7 +69,6 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
-        setMaximumSize(new java.awt.Dimension(1333, 666));
         setMinimumSize(new java.awt.Dimension(1333, 666));
 
         jPanel1.setBackground(new java.awt.Color(19, 30, 35));
@@ -218,9 +217,9 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(143, 314, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(154, 314, 0, 0);
         jPanel1.add(jPanel2, gridBagConstraints);
 
         jPanel3.setBackground(new java.awt.Color(255, 31, 31));
@@ -249,7 +248,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 41, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(30, 50, 0, 0);
         jPanel1.add(jPanel3, gridBagConstraints);
 
         label_nombre_user.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -263,21 +262,20 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 144;
         gridBagConstraints.ipady = 58;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 22, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(12, 22, 0, 0);
         jPanel1.add(label_nombre_user, gridBagConstraints);
 
         label_foto_user.setForeground(new java.awt.Color(255, 255, 255));
         label_foto_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_foto_user.setText("icono de usuario");
-        label_foto_user.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        label_foto_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image usuario (2).png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -15;
-        gridBagConstraints.ipady = 57;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipady = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 6, 0, 74);
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 43);
         jPanel1.add(label_foto_user, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -286,11 +284,11 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         jLabel3.setText("Pulse uno de los botones");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 277;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 314, 178, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 314, 174, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
