@@ -13,8 +13,9 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class CrearUnProyecto extends javax.swing.JFrame {
-    private PrincipalesOpciones principal_datos;
+    private PrincipalesOpciones Menu;
     private controllerUsuario usuario;
+    
   /**
    * Creates new form CrearUnProyecto
    */
@@ -23,6 +24,9 @@ public class CrearUnProyecto extends javax.swing.JFrame {
   }
   public CrearUnProyecto(controllerUsuario id) {
     initComponents();
+    
+    Menu = new PrincipalesOpciones();
+    
     this.usuario = id;
       System.out.println("Iniciando datos");
   }
@@ -35,7 +39,6 @@ public class CrearUnProyecto extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -45,11 +48,9 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         txt_nombre_p = new javax.swing.JTextField();
         txt_descripcion_p = new javax.swing.JTextField();
         txt_cantidad = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btn_crear = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +59,7 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1333, 666));
         jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1333, 666));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -121,51 +122,8 @@ public class CrearUnProyecto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 313;
-        gridBagConstraints.ipady = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(116, 184, 0, 391);
-        jPanel1.add(jPanel2, gridBagConstraints);
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("REGRESAR");
-
-        jLabel6.setText("icono");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 39, 0, 0);
-        jPanel1.add(jPanel3, gridBagConstraints);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(302, 173, 581, 210);
 
         jPanel4.setBackground(new java.awt.Color(0, 135, 103));
 
@@ -190,13 +148,18 @@ public class CrearUnProyecto extends javax.swing.JFrame {
             .addComponent(btn_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 281;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 277, 227, 0);
-        jPanel1.add(jPanel4, gridBagConstraints);
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(395, 401, 418, 41);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(60, 20, 60, 57);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,7 +175,7 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
   public void setv1(PrincipalesOpciones v11){
-      this.principal_datos = v11;
+      this.Menu = v11;
   }
   private void txt_descripcion_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_descripcion_pActionPerformed
     // TODO add your handling code here:
@@ -221,11 +184,6 @@ public class CrearUnProyecto extends javax.swing.JFrame {
   private void txt_nombre_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_pActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_txt_nombre_pActionPerformed
-
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-       this.principal_datos.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jPanel3MouseClicked
 
     private void btn_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearMouseClicked
         String nombre_p = this.txt_nombre_p.getText();
@@ -248,11 +206,19 @@ public class CrearUnProyecto extends javax.swing.JFrame {
         if(resultado == 1){
             JOptionPane.showMessageDialog(null,"EL PROYECTO SE CREO EXITOSAMENTE");
             this.setVisible(false);
-            this.principal_datos.setVisible(true);
+            this.Menu.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null,mensaje);
         }
     }//GEN-LAST:event_btn_crearMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+
+        this.Menu.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_jLabel5MouseClicked
 
   /**
    * @param args the command line arguments
@@ -294,11 +260,9 @@ public class CrearUnProyecto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txt_cantidad;
     private javax.swing.JTextField txt_descripcion_p;

@@ -4,6 +4,7 @@
  */
 package vista;
 
+import HoverButtons.ControllerAdministrarProyectos;
 import layouts.OpcionesGestionarProyectos;
 import layouts.OpcionesGestionarProyectoParticipante;
 
@@ -23,7 +24,8 @@ import javax.swing.table.TableColumn;
  * @author HP
  */
 public class AdministrarProyectos extends javax.swing.JFrame {
-public ControllerAdministrarProyectos ControllerAdministrarProyectos;
+    public ControllerAdministrarProyectos ControllerAdministrarProyectos;
+    private PrincipalesOpciones Menu;
 
 
     public AdministrarProyectos() {
@@ -42,8 +44,6 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        regresar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         BntGesProyecAdmin = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -54,41 +54,16 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaParticipante = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1333, 666));
         setMinimumSize(new java.awt.Dimension(1333, 666));
-        setPreferredSize(new java.awt.Dimension(1333, 666));
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
         jPanel2.setMaximumSize(new java.awt.Dimension(1333, 666));
         jPanel2.setMinimumSize(new java.awt.Dimension(1333, 666));
         jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        regresar.setText("REGRESAR");
-        regresar.setContentAreaFilled(false);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        regresar.setFocusPainted(false);
-        regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regresarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(regresar, java.awt.BorderLayout.CENTER);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 28;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(19, 64, 0, 0);
-        jPanel2.add(jPanel1, gridBagConstraints);
 
         jPanel3.setBackground(new java.awt.Color(0, 255, 51));
         jPanel3.setToolTipText("");
@@ -142,8 +117,8 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1114;
-        gridBagConstraints.ipady = 120;
+        gridBagConstraints.ipadx = 1108;
+        gridBagConstraints.ipady = 98;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -219,13 +194,27 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1114;
-        gridBagConstraints.ipady = 130;
+        gridBagConstraints.ipadx = 1108;
+        gridBagConstraints.ipady = 108;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(18, 85, 121, 118);
+        gridBagConstraints.insets = new java.awt.Insets(18, 85, 120, 118);
         jPanel2.add(jScrollPane2, gridBagConstraints);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 40, 0, 0);
+        jPanel2.add(jLabel3, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,16 +230,16 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setMenu(PrincipalesOpciones v11){
+      this.Menu = v11;
+    }
+    
     private void BntGesProyecAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BntGesProyecAdminActionPerformed
         // TODO add your handling code here:
         
         OpcionesGestionarProyectos gestionarProyectos = new OpcionesGestionarProyectos(this, true);
         gestionarProyectos.setVisible(true);
     }//GEN-LAST:event_BntGesProyecAdminActionPerformed
-
-    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_regresarActionPerformed
 
     private void BntGesProyecAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BntGesProyecAdminMouseEntered
         // TODO add your handling code here:
@@ -262,6 +251,14 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
         OpcionesGestionarProyectoParticipante gestionarProyectosParticipante = new OpcionesGestionarProyectoParticipante(this, true);
         gestionarProyectosParticipante.setVisible(true);
     }//GEN-LAST:event_GestProyParticipanteActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+
+        this.Menu.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -306,12 +303,11 @@ public ControllerAdministrarProyectos ControllerAdministrarProyectos;
     private javax.swing.JTable TablaParticipante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
 }

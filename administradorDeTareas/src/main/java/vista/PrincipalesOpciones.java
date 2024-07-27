@@ -16,7 +16,11 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   private IngresarCodigoDeProyecto v_codigo;
   private CrearUnProyecto new_proyect;
   private TareasPendientesPorRealizar gestionar_tarea;
+  private AdministrarProyectos administrar_proyecto;
+          
   private controllerUsuario user;
+  
+  
   /**
    * Creates new form PrincipalesOpciones
    */
@@ -33,6 +37,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
       this.v_codigo = new IngresarCodigoDeProyecto(this.user);  
       this.new_proyect = new CrearUnProyecto(this.user);
       this.gestionar_tarea = new TareasPendientesPorRealizar();
+      this.administrar_proyecto = new AdministrarProyectos();
       this.label_nombre_user.setText(user.getNombre());
       
   }
@@ -118,6 +123,11 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("ADMINISTRAR TAREAS PERSONALES");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_adm_tareasLayout = new javax.swing.GroupLayout(btn_adm_tareas);
         btn_adm_tareas.setLayout(btn_adm_tareasLayout);
@@ -141,6 +151,11 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("ADMINISTRAR PROYECTOS");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout adm_proyectosLayout = new javax.swing.GroupLayout(adm_proyectos);
         adm_proyectos.setLayout(adm_proyectosLayout);
@@ -339,6 +354,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
     private void btn_adm_tareasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_adm_tareasMouseClicked
         System.out.println("clikeado tareas");
         this.gestionar_tarea.setVisible(true);
+        this.gestionar_tarea.setv1(this);
         this.gestionar_tarea.set_usuario_date(this.user);
         this.setVisible(false);
     }//GEN-LAST:event_btn_adm_tareasMouseClicked
@@ -350,6 +366,28 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel5AncestorAdded
     // TODO add your handling code here:
   }//GEN-LAST:event_jLabel5AncestorAdded
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        
+        System.out.println("clikeado tareas");
+        this.gestionar_tarea.setVisible(true);
+        this.gestionar_tarea.setv1(this);
+        this.gestionar_tarea.set_usuario_date(this.user);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        
+        System.out.println("clikeado tareas");
+        this.administrar_proyecto.setVisible(true);
+        this.administrar_proyecto.setMenu(this);
+        //this.administrar_proyecto.set_usuario_date(this.user);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jLabel11MouseClicked
 
   /**
    * @param args the command line arguments

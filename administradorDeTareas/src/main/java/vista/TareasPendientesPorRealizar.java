@@ -17,19 +17,29 @@ import javax.swing.table.JTableHeader;
 import EstilosComponents.GestionEncabezadoTabla;
 import controller.ControllerProyectos;
 import controller.controllerUsuario;
+import HoverButtons.ControllerGestionarTareas;
+
 import java.util.List;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 public class TareasPendientesPorRealizar extends javax.swing.JFrame {
+    
     public ControllerGestionarTareas ControllerGestionarTareas;
     private controllerUsuario datos_user;
     private ControllerProyectos conexion = new ControllerProyectos();
+    private TareasEliminadas tareasEliminadas;
+    
+    
     DefaultTableModel modelo;
+    private PrincipalesOpciones Menu;
+    
     public TareasPendientesPorRealizar() {
         initComponents();
+        
+        Menu = new PrincipalesOpciones();
+        
         this.setLocationRelativeTo(null);
-        ControllerGestionarTareas = new ControllerGestionarTareas(this);        
-
+        ControllerGestionarTareas = new ControllerGestionarTareas(this); 
     //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
     }
     
@@ -41,15 +51,12 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         menu_tabla = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        regresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_datos_principal1 = new javax.swing.JTable();
@@ -64,6 +71,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         ComboFiltrar = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenuItem1.setText("opcion1");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,43 +93,13 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(1333, 666));
         jPanel2.setName(""); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(1333, 666));
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        regresar.setText("REGRESAR");
-        regresar.setContentAreaFilled(false);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        regresar.setFocusPainted(false);
-        regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regresarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(regresar, java.awt.BorderLayout.CENTER);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 30;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 106, 0, 0);
-        jPanel2.add(jPanel1, gridBagConstraints);
+        jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TAREAS PENDIENTES POR REALIZAR");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 106, 0, 0);
-        jPanel2.add(jLabel1, gridBagConstraints);
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(106, 78, 320, 25);
 
         tabla_datos_principal1.setBackground(new java.awt.Color(19, 30, 35));
         tabla_datos_principal1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -139,18 +117,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabla_datos_principal1);
         tabla_datos_principal1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1116;
-        gridBagConstraints.ipady = 350;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(46, 100, 0, 0);
-        jPanel2.add(jScrollPane1, gridBagConstraints);
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(100, 211, 1132, 369);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
 
@@ -166,16 +134,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         });
         jPanel4.add(ModificarTarea, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 46;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 106, 0, 0);
-        jPanel2.add(jPanel4, gridBagConstraints);
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(106, 126, 188, 39);
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 
@@ -191,16 +151,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         });
         jPanel5.add(BtnAgregarNuevaTarea, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 125, 0, 0);
-        jPanel2.add(jPanel5, gridBagConstraints);
+        jPanel2.add(jPanel5);
+        jPanel5.setBounds(419, 126, 181, 39);
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
@@ -216,15 +168,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         });
         jPanel6.add(BtnEliminarTarea, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 39;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 119, 0, 0);
-        jPanel2.add(jPanel6, gridBagConstraints);
+        jPanel2.add(jPanel6);
+        jPanel6.setBounds(719, 126, 171, 39);
 
         jPanel7.setLayout(new java.awt.BorderLayout());
 
@@ -240,15 +185,8 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         });
         jPanel7.add(BtnLimpiarListaTareas, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 12;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 108, 0, 0);
-        jPanel2.add(jPanel7, gridBagConstraints);
+        jPanel2.add(jPanel7);
+        jPanel7.setBounds(998, 123, 201, 39);
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
@@ -257,24 +195,27 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         ComboFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(ComboFiltrar, java.awt.BorderLayout.PAGE_START);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = -30;
-        gridBagConstraints.ipady = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 11, 0, 0);
-        jPanel2.add(jPanel3, gridBagConstraints);
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(1243, 123, 109, 33);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image (2).png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(4, 40, 14, 0);
-        jPanel2.add(jLabel3, gridBagConstraints);
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(1250, 580, 90, 88);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(50, 0, 60, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -291,6 +232,11 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void setv1(PrincipalesOpciones v11){
+      this.Menu = v11;
+    }
+    
     public void agregar_datos_tabla(){
         DefaultTableModel modelo = new DefaultTableModel(){
             @Override
@@ -352,6 +298,21 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+
+        this.Menu.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -397,11 +358,11 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> ComboFiltrar;
     public javax.swing.JButton ModificarTarea;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
@@ -410,7 +371,6 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu menu_tabla;
-    public javax.swing.JButton regresar;
     private javax.swing.JTable tabla_datos_principal1;
     // End of variables declaration//GEN-END:variables
 }
