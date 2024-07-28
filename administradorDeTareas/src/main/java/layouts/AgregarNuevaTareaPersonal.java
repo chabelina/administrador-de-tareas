@@ -14,16 +14,24 @@ import javax.swing.JOptionPane;
 public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
    private int id_user;
    private ControllerProyectos conexion = new ControllerProyectos();
+   private Calendario calendario;
+   public String fechaLimite;
+   private java.awt.Frame parent;
   /**
    * Creates new form AgregarNuevaTareaPersonal
    */
   public AgregarNuevaTareaPersonal(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
+    this.parent = parent;
     initComponents();
     
     this.setLocationRelativeTo(null);
-    
   }
+  
+  public javax.swing.JLabel getBtnCalendario(){
+    return this.btn_mostraCalendario;
+  }
+  
   public void valor_insert(int id){
       this.id_user = id;
   }
@@ -51,7 +59,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     jLabel13 = new javax.swing.JLabel();
     jPanel11 = new javax.swing.JPanel();
     panelRound3 = new Clases.PanelRound();
-    jLabel3 = new javax.swing.JLabel();
+    btn_mostraCalendario = new javax.swing.JLabel();
     jPanel9 = new javax.swing.JPanel();
     jLabel10 = new javax.swing.JLabel();
     panelRound7 = new Clases.PanelRound();
@@ -189,10 +197,16 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     panelRound3.setRoundTopRight(30);
     panelRound3.setLayout(new java.awt.BorderLayout());
 
-    jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fecha.png"))); // NOI18N
-    jLabel3.setText(" M/D/YYYY");
-    panelRound3.add(jLabel3, java.awt.BorderLayout.CENTER);
+    btn_mostraCalendario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+    btn_mostraCalendario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    btn_mostraCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fecha.png"))); // NOI18N
+    btn_mostraCalendario.setText(" M/D/YYYY");
+    btn_mostraCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_mostraCalendarioMouseClicked(evt);
+      }
+    });
+    panelRound3.add(btn_mostraCalendario, java.awt.BorderLayout.CENTER);
 
     javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
     jPanel11.setLayout(jPanel11Layout);
@@ -355,11 +369,12 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     String nombre = this.txt_nombre_archivo.getText();
     String desc = this.txt_desc_archivo.getText();
     String opcion = this.opciones.getSelectedItem().toString();
+    String fechaLimite = btn_mostraCalendario.getText();
     if(nombre == "" || desc == ""){
         JOptionPane.showMessageDialog(null,"COMPLETE TODOS LOS CAMPOS","ERROR DE CAMPOS",1);
         return;
     }
-    int valor = this.conexion.crear_nueva_tarea(id_user, nombre, desc, opcion);
+    int valor = this.conexion.crear_nueva_tarea(id_user, nombre, desc, opcion, fechaLimite);
     if(valor == -1){
         JOptionPane.showMessageDialog(null,"ERROR AL GUARDAR LOS DATOS","ERROR",2);
     }else{
@@ -371,6 +386,12 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     private void opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opcionesActionPerformed
+
+  private void btn_mostraCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mostraCalendarioMouseClicked
+    this.calendario = new Calendario(this.parent, true);
+    this.calendario.obtenerVentanaAnterior(this);
+    this.calendario.setVisible(true);
+  }//GEN-LAST:event_btn_mostraCalendarioMouseClicked
 
   /**
    * @param args the command line arguments
@@ -417,11 +438,11 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton boton_cerrar;
   private javax.swing.JButton boton_guardar;
+  private javax.swing.JLabel btn_mostraCalendario;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel13;
   private javax.swing.JLabel jLabel16;
-  private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel11;
   private javax.swing.JPanel jPanel2;

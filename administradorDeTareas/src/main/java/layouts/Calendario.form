@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,123 +26,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="581" max="32767" attributes="0"/>
+          <Component id="calendario" alignment="0" pref="483" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="1" pref="439" max="32767" attributes="0"/>
+          <Component id="calendario" alignment="0" pref="357" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="calendario">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="5">
-                <Column editable="true" title="Lunes" type="java.lang.Object">
-                  <Data value="1"/>
-                  <Data value="8"/>
-                  <Data value="15"/>
-                  <Data value="22"/>
-                  <Data value="29"/>
-                </Column>
-                <Column editable="true" title="Martes" type="java.lang.Object">
-                  <Data value="2"/>
-                  <Data value="9"/>
-                  <Data value="16"/>
-                  <Data value="23"/>
-                  <Data value="30"/>
-                </Column>
-                <Column editable="true" title="Miercoles" type="java.lang.Object">
-                  <Data value="3"/>
-                  <Data value="10"/>
-                  <Data value="17"/>
-                  <Data value="24"/>
-                  <Data value="31"/>
-                </Column>
-                <Column editable="true" title="Jueves" type="java.lang.Object">
-                  <Data value="4"/>
-                  <Data value="11"/>
-                  <Data value="18"/>
-                  <Data value="25"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="Viernes" type="java.lang.Object">
-                  <Data value="5"/>
-                  <Data value="12"/>
-                  <Data value="19"/>
-                  <Data value="26"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="Sabado" type="java.lang.Object">
-                  <Data value="6"/>
-                  <Data value="13"/>
-                  <Data value="20"/>
-                  <Data value="27"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="Domingo" type="java.lang.Object">
-                  <Data value="7"/>
-                  <Data value="14"/>
-                  <Data value="21"/>
-                  <Data value="28"/>
-                  <Data value="null"/>
-                </Column>
-              </Table>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="com.toedter.calendar.JCalendar" name="calendario">
+    </Component>
   </SubComponents>
 </Form>

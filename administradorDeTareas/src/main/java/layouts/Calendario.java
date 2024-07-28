@@ -1,62 +1,32 @@
+package layouts;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package layouts;
-
-import javax.swing.table.DefaultTableModel;
-import java.time.LocalDate;
 
 /**
  *
  * @author Usuario
  */
 public class Calendario extends javax.swing.JDialog {
-  DefaultTableModel modelo;
-  
-  private LocalDate fechaActual;
-  
-  //dimensiones del calendario
-  private float calendarioAltura;
-  private float calendarioAncho;
-  
-  /*
-  new Object[][] {
-    {"1", "John", "Doe", "30"},
-    {"2", "Jane", "Smith", "25"},
-    {"3", "Joe", "Brown", "40"}
-  },
-  new String[] {"ID", "Nombre", "Apellido", "Edad"}
-  
+  private AgregarNuevaTareaPersonal ventanaAnterior;
+  private String fechaSeleccionada = "";
   /**
-  * Creates new form Calendario
-  */
-  
-  //MÉTODOS DE PRUBA
-  public void test(){
-    System.out.println(""+this.fechaActual);
-  }
-  //FIN DE LOS MÉTODOS DE PRUEBA
-  
+   * Creates new form Calendario
+   */
   public Calendario(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
     initComponents();
-    this.fechaActual = LocalDate.now();
-    
-    modelo = new DefaultTableModel();
-    modelo.addColumn("LUNES");
-    modelo.addColumn("MARTES");
-    modelo.addColumn("MIERCOLES");
-    modelo.addColumn("JUEVS");
-    modelo.addColumn("VIERNES");
-    modelo.addColumn("SABADO");
-    modelo.addColumn("DOMINGO");
-    
-    this.calendario.setModel(modelo);
-    
-    this.test();
+    this.calendario.setMinSelectableDate(new Date());
   }
-
+  
+  public void obtenerVentanaAnterior(AgregarNuevaTareaPersonal ventanaAnterior){
+    this.ventanaAnterior = ventanaAnterior;
+  };
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,39 +36,51 @@ public class Calendario extends javax.swing.JDialog {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jScrollPane1 = new javax.swing.JScrollPane();
-    calendario = new javax.swing.JTable();
+    calendario = new com.toedter.calendar.JCalendar();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-    calendario.setModel(new javax.swing.table.DefaultTableModel(
-      new Object [][] {
-        {"1", "2", "3", "4", "5", "6", "7"},
-        {"8", "9", "10", "11", "12", "13", "14"},
-        {"15", "16", "17", "18", "19", "20", "21"},
-        {"22", "23", "24", "25", "26", "27", "28"},
-        {"29", "30", "31", null, null, null, null}
-      },
-      new String [] {
-        "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"
+    addWindowListener(new java.awt.event.WindowAdapter() {
+      public void windowClosing(java.awt.event.WindowEvent evt) {
+        formWindowClosing(evt);
       }
-    ));
-    jScrollPane1.setViewportView(calendario);
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+      .addComponent(calendario, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+      .addComponent(calendario, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    this.ventanaAnterior.getBtnCalendario().setText(this.getFechaSeleccionada());
+  }//GEN-LAST:event_formWindowClosing
+  
+  
+  //METODOS CREADOS POR NOSOTROS
+  public String getFechaSeleccionada(){
+    Date fechaCalendario = calendario.getDate();
+    if (fechaCalendario != null) {
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+      this.fechaSeleccionada = dateFormat.format(fechaCalendario); 
+    } else {
+      this.fechaSeleccionada = "0000/00/00";
+    } 
+    
+    System.out.println("LA FECHA SELECCIONADA ES: "+this.fechaSeleccionada);
+    
+    return this.fechaSeleccionada;
+  }
+  
+  //FIN DE LOS MÉTODOS CREADOS POR NOSOTROS
+  
   /**
    * @param args the command line arguments
    */
@@ -142,7 +124,6 @@ public class Calendario extends javax.swing.JDialog {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTable calendario;
-  private javax.swing.JScrollPane jScrollPane1;
+  private com.toedter.calendar.JCalendar calendario;
   // End of variables declaration//GEN-END:variables
 }

@@ -278,7 +278,6 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_regresarActionPerformed
 
     private void BtnAgregarNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarNuevaTareaActionPerformed
-
         AgregarNuevaTareaPersonal agregarTarea = new AgregarNuevaTareaPersonal(this, true);
         agregarTarea.valor_insert(this.datos_user.getId_usuario());
         agregarTarea.setVisible(true);

@@ -102,10 +102,10 @@ public class ControllerProyectos {
         }
         return valor;
     }
-    public int crear_nueva_tarea(int id_user,String nombre,String descripcion,String prioridad){
+    public int crear_nueva_tarea(int id_user,String nombre,String descripcion,String prioridad, String FechaLimite){
         int valor = -1;
         try {
-            String consulta = "INSERT INTO `tareaspersonales` (`id_usuario`, `nombre`, `descripcion`, `prioridad`) VALUES ('"+id_user+"', '"+nombre+"', '"+descripcion+"', '"+prioridad+"')";
+            String consulta = "INSERT INTO `tareaspersonales` (`id_usuario`, `nombre`, `descripcion`, `prioridad`, `fechaLimite`) VALUES ('"+id_user+"', '"+nombre+"', '"+descripcion+"', '"+prioridad+"','"+FechaLimite+"')";
             System.out.println(consulta);
             String resultado = this.conexion.insert_date(consulta);
             valor = Integer.parseInt(resultado);
