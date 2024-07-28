@@ -299,9 +299,11 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_ModificarTareaActionPerformed
 
     private void BtnEliminarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarTareaActionPerformed
-        // TODO add your handling code here:
+
         EliminarTarea eliminarTarea = new EliminarTarea(this, true);
+        eliminarTarea.accedo_dato(this.datos_user.getId_usuario());
         eliminarTarea.setVisible(true);
+        
     }//GEN-LAST:event_BtnEliminarTareaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

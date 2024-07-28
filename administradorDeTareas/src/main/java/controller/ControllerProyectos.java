@@ -3,6 +3,8 @@ package controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.modelo;
@@ -79,12 +81,12 @@ public class ControllerProyectos {
     }
 
     public List<String[]> tareas_usuario(int id){
-        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM softwaretareas.tareaspersonales where id_usuario = "+id+";";
+        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM tareas_activas where id_usuario = "+id+";";
         List<String[]> datos = this.conexion.valores_array(consulta);
         return datos;
     }
     public String[] datos_unicos(int id,int id_user){
-        String consulta = "SELECT * FROM tareaspersonales where id = "+id+" and id_usuario = "+id_user+";";
+        String consulta = "SELECT * FROM tareas_activas where id = "+id+" and id_usuario = "+id_user+";";
         String[] datos = this.conexion.valores_array(consulta).get(0);
         return datos;
     }
@@ -110,6 +112,18 @@ public class ControllerProyectos {
             //valor = 1;
         } catch (Exception e) {
             valor = -1;
+        }
+        return valor;
+    }
+    public int elimar_tarea(int id_user,int id_delete){
+        int valor = -1;
+        try {
+            String consulta = "UPDATE `softwaretareas`.`tareaspersonales` SET `activo` = '0' WHERE (`id` = '"+id_delete+"');";
+            valor = this.conexion.Ubdate_date(consulta);
+        } catch (Exception ex) {
+            valor = -1;
+            System.out.println("r: "+ex);
+            Logger.getLogger(modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return valor;
     }
