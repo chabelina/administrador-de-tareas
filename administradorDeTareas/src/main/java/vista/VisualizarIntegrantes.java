@@ -10,6 +10,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
+import layouts.EliminarIntegrante;
+import layouts.EliminarTarea;
 
 
 
@@ -44,7 +46,7 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        Btn_EliminarIntegrantes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -58,19 +60,19 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1333, 666));
         jPanel1.setLayout(null);
 
-        jButton3.setBackground(new java.awt.Color(8, 131, 20));
-        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("ELIMINAR INTEGRANTES");
-        jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Btn_EliminarIntegrantes.setBackground(new java.awt.Color(8, 131, 20));
+        Btn_EliminarIntegrantes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Btn_EliminarIntegrantes.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_EliminarIntegrantes.setText("ELIMINAR INTEGRANTES");
+        Btn_EliminarIntegrantes.setBorder(null);
+        Btn_EliminarIntegrantes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_EliminarIntegrantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                Btn_EliminarIntegrantesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(1070, 30, 230, 34);
+        jPanel1.add(Btn_EliminarIntegrantes);
+        Btn_EliminarIntegrantes.setBounds(1070, 30, 230, 34);
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -108,7 +110,7 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(26, 76, 1280, 486);
+        jPanel2.setBounds(26, 76, 1280, 493);
 
         icono_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/regresar.png"))); // NOI18N
         icono_Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -134,9 +136,10 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_jButton3ActionPerformed
+  private void Btn_EliminarIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarIntegrantesActionPerformed
+        EliminarIntegrante eliminarintegrante = new EliminarIntegrante(this, true);
+        eliminarintegrante.setVisible(true);
+  }//GEN-LAST:event_Btn_EliminarIntegrantesActionPerformed
 
     private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
         // TODO add your handling code here:
@@ -183,8 +186,8 @@ public class VisualizarIntegrantes extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_EliminarIntegrantes;
     private javax.swing.JLabel icono_Regresar;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
