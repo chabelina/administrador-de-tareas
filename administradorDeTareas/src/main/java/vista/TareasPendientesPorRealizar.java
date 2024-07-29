@@ -196,6 +196,21 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         ComboFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ComboFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FILTRAR", "FECHA LIMITE", "PRIORIDAD", "EXPIRADAS" }));
         ComboFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ComboFiltrar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboFiltrarItemStateChanged(evt);
+            }
+        });
+        ComboFiltrar.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                ComboFiltrarPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                ComboFiltrarPopupMenuWillBecomeVisible(evt);
+            }
+        });
         ComboFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboFiltrarActionPerformed(evt);
@@ -302,7 +317,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         EliminarTarea eliminarTarea = new EliminarTarea(this, true);
         eliminarTarea.accedo_dato(this.datos_user.getId_usuario());
         eliminarTarea.setVisible(true);
-        
+        this.agregar_datos_tabla();
     }//GEN-LAST:event_BtnEliminarTareaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -324,8 +339,56 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_papeleraMouseClicked
 
   private void ComboFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboFiltrarActionPerformed
-    // TODO add your handling code here:
+      //System.out.println("Se acaba de hacer un cambio");
   }//GEN-LAST:event_ComboFiltrarActionPerformed
+
+    private void ComboFiltrarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboFiltrarItemStateChanged
+        System.out.println("SE HIZO CLICK EN UN ITEM");
+        String clikeado = (String)evt.getItem();
+        DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row,int colum){
+                return false;
+            }
+        };
+        
+        TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<TableModel>(modelo); 
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE DE LA TAREA");
+        modelo.addColumn("DESCRIPCION");
+        modelo.addColumn("PRIORIDAD");
+        modelo.addColumn("FECHA LIMITE");
+        
+        List<String[]> datos = null;
+        
+        this.tabla_datos_principal1.setModel(modelo);
+        if(clikeado.equals("FECHA LIMITE")){
+            datos = this.conexion.tareas_usuario(this.datos_user.getId_usuario());
+            for(String[] dato : datos){
+                modelo.addRow(dato);
+            }
+        }else if(clikeado.equals("PRIORIDAD")){
+            datos = this.conexion.prioridad(this.datos_user.getId_usuario());
+            for(String[] dato : datos){
+                modelo.addRow(dato);
+            }
+        }else if(clikeado.equals("EXPIRADAS")){
+            datos = this.conexion.expiradas(this.datos_user.getId_usuario());
+            for(String[] dato : datos){
+                modelo.addRow(dato);
+            }
+        }
+        this.tabla_datos_principal1.setModel(modelo);
+    }//GEN-LAST:event_ComboFiltrarItemStateChanged
+
+    private void ComboFiltrarPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_ComboFiltrarPopupMenuWillBecomeVisible
+        
+    }//GEN-LAST:event_ComboFiltrarPopupMenuWillBecomeVisible
+
+    private void ComboFiltrarPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_ComboFiltrarPopupMenuWillBecomeInvisible
+    
+    }//GEN-LAST:event_ComboFiltrarPopupMenuWillBecomeInvisible
 
     /**
      * @param args the command line arguments

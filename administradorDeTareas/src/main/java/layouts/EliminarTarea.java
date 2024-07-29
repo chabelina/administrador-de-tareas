@@ -176,6 +176,7 @@ public class EliminarTarea extends javax.swing.JDialog {
   private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
       String id = this.txt_id_eliminar.getText();
       int opcion1;
+      int opcion = 1;
       if(id.length() > 10 ||  id.length() < 0){
           JOptionPane.showMessageDialog(null,"El id ingresado no es correcto", "Error", 2);
           return;
@@ -187,21 +188,19 @@ public class EliminarTarea extends javax.swing.JDialog {
               return;
           }
           
-          int opcion = JOptionPane.showConfirmDialog(null, "ESTAS SEGURO DE ELIMINAR : " + datos[2] +" : "+datos[4], "CONFIRMACION",2);
+          opcion = JOptionPane.showConfirmDialog(null, "ESTAS SEGURO DE ELIMINAR : " + datos[2] +" : "+datos[4], "CONFIRMACION",2);
           System.out.println("opcion_elegir : "+opcion);
-          if(opcion == 1){
-              opcion1 = this.tareas.elimar_tarea(id_usuario,Integer.parseInt(id));
-              System.out.println("resultado : "+opcion1);
-              if(opcion1 == 1){
-                  JOptionPane.showMessageDialog(null,"La tarea se ha eliminado correctamente","EXITO",2);
-              }
-          }else{
-              this.dispose();
-          }
       } catch (Exception e) {
           System.out.println(e);
       }
-      
+      if(opcion == 0){
+        opcion1 = this.tareas.elimar_tarea(id_usuario,Integer.parseInt(id));
+        System.out.println("tarea a eliminar : "+opcion1);
+        if(opcion1 == 1){
+            JOptionPane.showMessageDialog(null,"La tarea se ha eliminado correctamente","EXITO",2);
+        }
+      }
+      this.dispose();
   }//GEN-LAST:event_btn_eliminarActionPerformed
 
   /**

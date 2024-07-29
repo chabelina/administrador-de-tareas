@@ -85,15 +85,32 @@ public class ControllerProyectos {
         List<String[]> datos = this.conexion.valores_array(consulta);
         return datos;
     }
+    public List<String[]> prioridad(int id){
+        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM tareas_activas where id_usuario = "+id+" order by case WHEN prioridad = 'ALTA' THEN 1 WHEN prioridad = 'MEDIA' THEN 2 ELSE 3 end;";
+        List<String[]> datos = this.conexion.valores_array(consulta);
+        return datos;
+    }
+    public List<String[]> expiradas(int id){
+        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM tareasexpiradas where id_usuario = "+id+";";
+        List<String[]> datos = this.conexion.valores_array(consulta);
+        return datos;
+    }
+    public List<String[]> tareas_eliminadas(int id){
+        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM tareas_eliminadas where id_usuario = "+id+";";
+        List<String[]> datos = this.conexion.valores_array(consulta);
+        return datos;
+    }
     public String[] datos_unicos(int id,int id_user){
-        String consulta = "SELECT * FROM tareas_activas where id = "+id+" and id_usuario = "+id_user+";";
+        String consulta = "SELECT * FROM tareaspersonales where id = "+id+" and id_usuario = "+id_user+";";
         String[] datos = this.conexion.valores_array(consulta).get(0);
         return datos;
     }
-    public int actualizar_cambios(int id,String nombre,String descr){
+    public int actualizar_cambios(int id,String nombre,String descr,String fecha,String prioridad){
         int valor = 0;
         try {
-            String consulta = "UPDATE `tareaspersonales` SET `nombre` = '"+nombre+"', `descripcion` = '"+descr+"' WHERE (`id` = "+id+");";
+//            UPDATE `softwaretareas`.`tareaspersonales` SET `nombre` = 'probando', `descripcion` = 'prueba', `prioridad` = 'MEDIA', `fechaLimite` = '2024-07-32' WHERE (`id` = '5');
+
+            String consulta = "UPDATE `tareaspersonales` SET `nombre` = '"+nombre+"', `descripcion` = '"+descr+"', `prioridad` = '"+prioridad+"' WHERE (`id` = "+id+");";
             this.conexion.Ubdate_date(consulta);
             valor = 1;
         } catch (Exception e) {
@@ -118,7 +135,7 @@ public class ControllerProyectos {
     public int elimar_tarea(int id_user,int id_delete){
         int valor = -1;
         try {
-            String consulta = "UPDATE `softwaretareas`.`tareaspersonales` SET `activo` = '0' WHERE (`id` = '"+id_delete+"');";
+            String consulta = "UPDATE `tareaspersonales` SET `activo` = '0' WHERE (`id` = '"+id_delete+"')";
             valor = this.conexion.Ubdate_date(consulta);
         } catch (Exception ex) {
             valor = -1;

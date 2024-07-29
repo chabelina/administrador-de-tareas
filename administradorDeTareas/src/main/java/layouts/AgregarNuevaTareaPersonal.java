@@ -350,7 +350,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     String desc = this.txt_desc_archivo.getText();
     String opcion = this.opciones.getSelectedItem().toString();
     String fechaLimite = btn_mostraCalendario.getText();
-    if(nombre == "" || desc == ""){
+    System.out.println("fecha seleccionada : "+ fechaLimite);
+    if(nombre == "" || desc == "" || nombre.length() < 4  || desc.length() < 4){
         JOptionPane.showMessageDialog(null,"COMPLETE TODOS LOS CAMPOS","ERROR DE CAMPOS",1);
         return;
     }
