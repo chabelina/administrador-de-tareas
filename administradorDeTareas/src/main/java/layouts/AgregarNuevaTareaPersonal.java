@@ -17,13 +17,26 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
    private Calendario calendario;
    public String fechaLimite;
    private java.awt.Frame parent;
+   
+   int xMouse, yMouse;
+   
   /**
    * Creates new form AgregarNuevaTareaPersonal
    */
   public AgregarNuevaTareaPersonal(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
+    
+    this.setUndecorated(true);
+    
     this.parent = parent;
     initComponents();
+    
+    // Hacer el fondo del diálogo transparente 
+    this.setBackground(new java.awt.Color(0, 0, 0, 0));
+
+    // Hacer el contenido del panel principal transparente 
+   ((javax.swing.JPanel)getContentPane()).setOpaque(false); 
+
     
     this.setLocationRelativeTo(null);
   }
@@ -45,7 +58,6 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     private void initComponents() {
 
         panelRound4 = new Clases.PanelRound();
-        jPanel2 = new javax.swing.JPanel();
         panelRound1 = new Clases.PanelRound();
         boton_cerrar = new javax.swing.JButton();
         opciones = new javax.swing.JComboBox<>();
@@ -65,6 +77,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound7 = new Clases.PanelRound();
         txt_desc_archivo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -72,19 +85,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound4.setBackground(new java.awt.Color(19, 30, 35));
         panelRound4.setRoundBottomLeft(30);
         panelRound4.setRoundBottomRight(30);
-
-        jPanel2.setBackground(new java.awt.Color(19, 30, 35));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
+        panelRound4.setLayout(null);
 
         panelRound1.setBackground(new java.awt.Color(174, 7, 57));
         panelRound1.setRoundBottomLeft(30);
@@ -98,14 +99,19 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         boton_cerrar.setForeground(new java.awt.Color(255, 255, 255));
         boton_cerrar.setText("CANCELAR");
         boton_cerrar.setBorder(null);
+        boton_cerrar.setBorderPainted(false);
         boton_cerrar.setContentAreaFilled(false);
         boton_cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_cerrar.setFocusPainted(false);
         boton_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_cerrarActionPerformed(evt);
             }
         });
         panelRound1.add(boton_cerrar, java.awt.BorderLayout.CENTER);
+
+        panelRound4.add(panelRound1);
+        panelRound1.setBounds(314, 352, 143, 53);
 
         opciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALTA", "MEDIA", "BAJA" }));
@@ -115,6 +121,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
                 opcionesActionPerformed(evt);
             }
         });
+        panelRound4.add(opciones);
+        opciones.setBounds(106, 271, 87, 40);
 
         jPanel3.setPreferredSize(new java.awt.Dimension(0, 2));
 
@@ -129,6 +137,9 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
             .addGap(0, 2, Short.MAX_VALUE)
         );
 
+        panelRound4.add(jPanel3);
+        jPanel3.setBounds(1084, 41, 0, 2);
+
         panelRound2.setBackground(new java.awt.Color(0, 135, 103));
         panelRound2.setRoundBottomLeft(30);
         panelRound2.setRoundBottomRight(30);
@@ -141,14 +152,19 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         boton_guardar.setForeground(new java.awt.Color(255, 255, 255));
         boton_guardar.setText("GUARDAR TAREA");
         boton_guardar.setBorder(null);
+        boton_guardar.setBorderPainted(false);
         boton_guardar.setContentAreaFilled(false);
         boton_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_guardar.setFocusPainted(false);
         boton_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_guardarActionPerformed(evt);
             }
         });
         panelRound2.add(boton_guardar, java.awt.BorderLayout.CENTER);
+
+        panelRound4.add(panelRound2);
+        panelRound2.setBounds(27, 352, 166, 53);
 
         jPanel8.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -185,9 +201,14 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelRound4.add(jPanel8);
+        jPanel8.setBounds(6, 61, 1078, 69);
+
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Prioridad");
+        panelRound4.add(jLabel13);
+        jLabel13.setBounds(16, 271, 63, 42);
 
         jPanel11.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -220,8 +241,11 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 71, Short.MAX_VALUE))
         );
+
+        panelRound4.add(jPanel11);
+        jPanel11.setBounds(336, 271, 303, 112);
 
         jPanel9.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -237,7 +261,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_desc_archivo.setBorder(null);
-        panelRound7.add(txt_desc_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 430, 50));
+        panelRound7.add(txt_desc_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 450, 50));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -258,90 +282,50 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
+        panelRound4.add(jPanel9);
+        jPanel9.setBounds(6, 131, 1078, 154);
+
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Fecha Limite");
+        panelRound4.add(jLabel16);
+        jLabel16.setBounds(236, 281, 90, 28);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel4MouseDragged(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel4MousePressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("AGREGAR NUEVA TAREA");
 
-        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
-        panelRound4.setLayout(panelRound4Layout);
-        panelRound4Layout.setHorizontalGroup(
-            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(288, 288, 288)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound4Layout.createSequentialGroup()
-                                .addGap(230, 230, 230)
-                                .addComponent(jLabel16))
-                            .addGroup(panelRound4Layout.createSequentialGroup()
-                                .addGap(330, 330, 330)
-                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelRound4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel13))
-                            .addGroup(panelRound4Layout.createSequentialGroup()
-                                .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRound4Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRound4Layout.createSequentialGroup()
-                                        .addGap(100, 100, 100)
-                                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(121, 121, 121)
-                                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
-        panelRound4Layout.setVerticalGroup(
-            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound4Layout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
-                    .addGroup(panelRound4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
+
+        panelRound4.add(jPanel4);
+        jPanel4.setBounds(0, 0, 500, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -351,7 +335,7 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, 459, Short.MAX_VALUE)
+            .addComponent(panelRound4, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
 
         pack();
@@ -388,6 +372,27 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     this.calendario.obtenerVentanaAnterior(this);
     this.calendario.setVisible(true);
   }//GEN-LAST:event_btn_mostraCalendarioMouseClicked
+
+    private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
+        // TODO add your handling code here:
+        
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+        
+    }//GEN-LAST:event_jPanel4MousePressed
+
+    private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
+        // TODO add your handling code here:
+        
+        // Calcula cuánto se ha movido el mouse desde que se presionó
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        // Mueve la ventana a su nueva posición
+        this.setLocation(x - xMouse, y - yMouse);
+
+        
+    }//GEN-LAST:event_jPanel4MouseDragged
 
   /**
    * @param args the command line arguments
@@ -441,8 +446,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JComboBox<String> opciones;
