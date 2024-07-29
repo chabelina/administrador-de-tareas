@@ -29,8 +29,6 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   public PrincipalesOpciones() {
     initComponents();
     MenuLogin = new Login();
-    
-    
     this.setExtendedState(this.MAXIMIZED_BOTH);
   }
   public PrincipalesOpciones(int id_user){
@@ -48,6 +46,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
   }
   public void set_id_user(int id){
       this.id_usuario = id;
+      System.out.println("validando id : "+id);
       this.user = new controllerUsuario(this.id_usuario);
       Iniciando_codigo_datos();
   }

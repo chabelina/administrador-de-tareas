@@ -13,6 +13,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import EstilosComponents.GestionEncabezadoTabla;
+import controller.ControllerProyectos;
+import java.util.List;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author HP
@@ -20,6 +24,7 @@ import EstilosComponents.GestionEncabezadoTabla;
 public class TareasEliminadas extends javax.swing.JFrame {
     public Controller controller;
     public TareasPendientesPorRealizar tareasPersonales;
+    private ControllerProyectos conexion = new ControllerProyectos(); 
     private int id_user;
     /**
      * Creates new form TareasEliminadas
@@ -51,7 +56,7 @@ public class TareasEliminadas extends javax.swing.JFrame {
         recuperar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_datos = new javax.swing.JTable();
         icono_Regresar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,10 +92,10 @@ public class TareasEliminadas extends javax.swing.JFrame {
         jPanel2.add(jLabel1);
         jLabel1.setBounds(64, 66, 187, 25);
 
-        jTable1.setBackground(new java.awt.Color(19, 30, 35));
-        jTable1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_datos.setBackground(new java.awt.Color(19, 30, 35));
+        tabla_datos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        tabla_datos.setForeground(new java.awt.Color(255, 255, 255));
+        tabla_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,10 +103,10 @@ public class TareasEliminadas extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setMinimumSize(new java.awt.Dimension(200, 80));
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tabla_datos.setColumnSelectionAllowed(true);
+        tabla_datos.setMinimumSize(new java.awt.Dimension(200, 80));
+        jScrollPane1.setViewportView(tabla_datos);
+        tabla_datos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(60, 159, 1214, 465);
@@ -144,7 +149,28 @@ public class TareasEliminadas extends javax.swing.JFrame {
         this.tareasPersonales.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_icono_RegresarMouseClicked
-
+    public void agregar_datos_tabla(){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row,int colum){
+                return false;
+            }
+        };
+        
+        TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<TableModel>(modelo); 
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE DE LA TAREA");
+        modelo.addColumn("DESCRIPCION");
+        modelo.addColumn("PRIORIDAD");
+        modelo.addColumn("FECHA LIMITE");
+        
+        List<String[]> datos = this.conexion.tareas_eliminadas(this.id_user);
+        for(String[] dato : datos){
+            modelo.addRow(dato);
+        }
+        this.tabla_datos.setModel(modelo);
+    }
     /**
      * @param args the command line arguments
      */
@@ -186,7 +212,7 @@ public class TareasEliminadas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     public javax.swing.JButton recuperar;
+    private javax.swing.JTable tabla_datos;
     // End of variables declaration//GEN-END:variables
 }

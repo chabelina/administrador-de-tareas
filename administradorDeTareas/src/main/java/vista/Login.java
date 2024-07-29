@@ -308,7 +308,7 @@ public class Login extends javax.swing.JFrame {
         int resultado = acceso_data.acceso(email,pass);
         System.out.println("resultado : "+ resultado);
         if(resultado >= 1){
-            PrincipalesOpciones principal = new PrincipalesOpciones();
+            PrincipalesOpciones principal = new PrincipalesOpciones(resultado);
             principal.set_id_user(resultado);
             principal.setVisible(true);
             this.dispose();
