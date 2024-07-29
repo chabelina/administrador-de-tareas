@@ -18,6 +18,8 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     private int id_user;
     private int id_tarea;
     private boolean activo = false;
+    private Calendario calendario;
+    public String fechaLimite;
   /**
    * Creates new form ModificarTareaPersonal
    */
@@ -65,7 +67,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         txt_descripcion_tarea = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        boton_opciones = new javax.swing.JComboBox<>();
         jPanel11 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -215,12 +217,12 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("PRIORIDAD");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALTA", "MEDIA", "BAJA" }));
-        jComboBox1.setBorder(null);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        boton_opciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        boton_opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALTA", "MEDIA", "BAJA" }));
+        boton_opciones.setBorder(null);
+        boton_opciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                boton_opcionesActionPerformed(evt);
             }
         });
 
@@ -231,7 +233,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                 .addGap(29, 29, 29)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         jPanel10Layout.setVerticalGroup(
@@ -240,7 +242,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(boton_opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel11.setBackground(new java.awt.Color(19, 30, 35));
@@ -252,6 +254,11 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fecha.png"))); // NOI18N
         jLabel4.setText(" M/D/YYYY");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -369,7 +376,8 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         int valor = 0;
         String nombre = this.txt_nombre_tarea.getText();
         String descripcion = this.txt_descripcion_tarea.getText();
-        valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion);
+        String prioridad = this.boton_opciones.getSelectedItem().toString();
+        valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion,prioridad,"");
         //JOptionPane.showConfirmDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
         JOptionPane.showMessageDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
         this.dispose();
@@ -400,9 +408,12 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         
     }//GEN-LAST:event_boton_buscar_idMouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void boton_opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_opcionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_boton_opcionesActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_jLabel4MouseClicked
 
   /**
    * @param args the command line arguments
@@ -450,7 +461,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     private javax.swing.JLabel boton_buscar_id;
     private javax.swing.JButton boton_cancelar;
     private javax.swing.JButton boton_guardar_cambios;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> boton_opciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
