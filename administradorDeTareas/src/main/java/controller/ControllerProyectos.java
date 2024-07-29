@@ -149,4 +149,24 @@ public class ControllerProyectos {
         }
         return valor;
     }
+    public int recuperar_tarea(int id_user,int id_recuperar){
+        int valor = -1;
+        try {
+            String consulta = "UPDATE `tareaspersonales` SET `activo` = '1' WHERE (`id` = '"+id_recuperar+"')";
+            valor = this.conexion.Ubdate_date(consulta);
+        } catch (Exception ex) {
+            valor = -1;
+            System.out.println("r: "+ex);
+            Logger.getLogger(modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return valor;
+    }
+    //control de los proyectos y no tareas
+    
+    
+    public List<String[]> mostrar_proyectos_administrador(int id_user){
+        //String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM tareas_eliminadas where id_usuario = "+id+";";
+        //List<String[]> datos = this.conexion.valores_array(consulta);
+        return null;
+    }
 }

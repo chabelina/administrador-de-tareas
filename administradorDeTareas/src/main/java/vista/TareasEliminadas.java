@@ -17,6 +17,7 @@ import controller.ControllerProyectos;
 import java.util.List;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import layouts.RecuperarTarea;
 /**
  *
  * @author HP
@@ -41,6 +42,7 @@ public class TareasEliminadas extends javax.swing.JFrame {
     }
     public void set_id_user(int id){
         this.id_user = id;
+        this.agregar_datos_tabla();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -142,7 +144,11 @@ public class TareasEliminadas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuperarActionPerformed
-        // TODO add your handling code here:
+        System.out.println("recuperar una tarea");
+        RecuperarTarea recuperar = new RecuperarTarea(this,true); 
+        recuperar.set_id_user(this.id_user);
+        recuperar.setVisible(true);
+        this.agregar_datos_tabla();
     }//GEN-LAST:event_recuperarActionPerformed
 
     private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
