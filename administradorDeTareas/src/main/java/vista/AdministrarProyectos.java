@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package vista;
 
 import HoverButtons.ControllerAdministrarProyectos;
@@ -17,25 +14,72 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import EstilosComponents.GestionEncabezadoTabla;
+import controller.controllerUsuario;
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
-/**
- *
- * @author HP
- */
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
 public class AdministrarProyectos extends javax.swing.JFrame {
-    public ControllerAdministrarProyectos ControllerAdministrarProyectos;
+    public controller.ControllerAdministrarProyectos ControllerAdministrarProyectos;
     private PrincipalesOpciones Menu;
+    private int id_user;
+    private controllerUsuario user;
 
-
-    public AdministrarProyectos() {
+    public AdministrarProyectos(){
+      initComponents();
+    }
+    
+    public AdministrarProyectos(int id_user) {
         initComponents();
-        
-        Menu = new PrincipalesOpciones();
+        this.id_user = id_user;
+        ControllerAdministrarProyectos = new controller.ControllerAdministrarProyectos(id_user);
+        user = new controllerUsuario(this.id_user);
         
         this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.refrescarTablaProyectosAdmin();
+        this.refrescarTablaProyectosParticipante();
     }
+    
+    public void refrescarTablaProyectosAdmin(){
+      DefaultTableModel modelo = new DefaultTableModel(){
+          @Override
+          public boolean isCellEditable(int row,int colum){
+              return false;
+          }
+      };
 
+      modelo.addColumn("ID");
+      modelo.addColumn("NOMBRE DEL PROYECTO");
+
+      List<String[]> datos = this.ControllerAdministrarProyectos.getProyectos_userAdmin();
+      for(String[] dato : datos){
+          modelo.addRow(dato);
+      }
+      
+      this.TablaAdmin.setModel(modelo);
+    }
+    
+    public void refrescarTablaProyectosParticipante(){
+      DefaultTableModel modelo = new DefaultTableModel(){
+          @Override
+          public boolean isCellEditable(int row,int colum){
+              return false;
+          }
+      };
+
+      modelo.addColumn("ID");
+      modelo.addColumn("NOMBRE DEL PROYECTO");
+
+      List<String[]> datos = this.ControllerAdministrarProyectos.getProyecto_userParticipante();
+      for(String[] dato : datos){
+          modelo.addRow(dato);
+      }
+      
+      this.TablaParticipante.setModel(modelo);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -240,10 +284,9 @@ public class AdministrarProyectos extends javax.swing.JFrame {
     }
     
     private void BntGesProyecAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BntGesProyecAdminActionPerformed
-        // TODO add your handling code here:
-        
         OpcionesGestionarProyectos gestionarProyectos = new OpcionesGestionarProyectos(this, true);
         gestionarProyectos.setVisible(true);
+        gestionarProyectos.obtenerIdUser(this.id_user);
     }//GEN-LAST:event_BntGesProyecAdminActionPerformed
 
     private void BntGesProyecAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BntGesProyecAdminMouseEntered

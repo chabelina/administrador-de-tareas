@@ -43,7 +43,7 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
       this.v_codigo = new IngresarCodigoDeProyecto(this.user);  
       this.new_proyect = new CrearUnProyecto(this.user);
       this.gestionar_tarea = new TareasPendientesPorRealizar();
-      this.administrar_proyecto = new AdministrarProyectos();
+      this.administrar_proyecto = new AdministrarProyectos(this.id_usuario);
       this.label_nombre_user.setText(user.getNombre());  
   }
   public void set_id_user(int id){
