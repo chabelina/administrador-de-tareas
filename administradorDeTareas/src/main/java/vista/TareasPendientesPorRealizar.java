@@ -40,7 +40,6 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         tareasEliminadas = new TareasEliminadas();
         Menu = new PrincipalesOpciones();
         this.setLocationRelativeTo(null);
-        tareasEliminadas.set_id_user(this.datos_user.getId_usuario());
         ControllerGestionarTareas = new ControllerGestionarTareas(this);
         
     //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
@@ -333,6 +332,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void papeleraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_papeleraMouseClicked
+        tareasEliminadas.set_id_user(this.datos_user.getId_usuario());
         this.tareasEliminadas.setVisible(true);
         this.setVisible(false);
         this.tareasEliminadas.obtenerVentanAnterior(this);
