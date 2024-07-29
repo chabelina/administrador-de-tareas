@@ -5,21 +5,9 @@ import HoverButtons.ControllerAdministrarProyectos;
 import layouts.OpcionesGestionarProyectos;
 import layouts.OpcionesGestionarProyectoParticipante;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.JPanel;
-
-import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
-import EstilosComponents.GestionEncabezadoTabla;
 import controller.controllerUsuario;
 import java.util.List;
-import javax.swing.JTable;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 public class AdministrarProyectos extends javax.swing.JFrame {
     public controller.ControllerAdministrarProyectos ControllerAdministrarProyectos;
@@ -53,12 +41,18 @@ public class AdministrarProyectos extends javax.swing.JFrame {
       modelo.addColumn("ID");
       modelo.addColumn("NOMBRE DEL PROYECTO");
 
-      List<String[]> datos = this.ControllerAdministrarProyectos.getProyectos_userAdmin();
-      for(String[] dato : datos){
-          modelo.addRow(dato);
-      }
+      if( this.ControllerAdministrarProyectos.getProyectos_userAdmin() == null){
+        System.out.println("NO EXISTEN PROYECTOS EN DONDE SEAS ADMIN");
+        this.limpiarTabla(modelo);
+      }else{
+        List<String[]> datos = this.ControllerAdministrarProyectos.getProyectos_userAdmin();
       
-      this.TablaAdmin.setModel(modelo);
+        for(String[] dato : datos){
+            modelo.addRow(dato);
+        }
+
+        this.TablaAdmin.setModel(modelo);
+        }
     }
     
     public void refrescarTablaProyectosParticipante(){
@@ -78,6 +72,13 @@ public class AdministrarProyectos extends javax.swing.JFrame {
       }
       
       this.TablaParticipante.setModel(modelo);
+    }
+    
+    public void limpiarTabla(DefaultTableModel modelo){
+      int fila = modelo.getRowCount();
+      for(int i = fila-1 ; i>=0; i--){
+        modelo.removeRow(i);
+      }
     }
     
     /**
@@ -285,8 +286,11 @@ public class AdministrarProyectos extends javax.swing.JFrame {
     
     private void BntGesProyecAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BntGesProyecAdminActionPerformed
         OpcionesGestionarProyectos gestionarProyectos = new OpcionesGestionarProyectos(this, true);
-        gestionarProyectos.setVisible(true);
+        gestionarProyectos.obtenerVentanaAnterior(this);
         gestionarProyectos.obtenerIdUser(this.id_user);
+        gestionarProyectos.obtenerControllerProyecto(this.ControllerAdministrarProyectos);
+        
+        gestionarProyectos.setVisible(true);
     }//GEN-LAST:event_BntGesProyecAdminActionPerformed
 
     private void BntGesProyecAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BntGesProyecAdminMouseEntered

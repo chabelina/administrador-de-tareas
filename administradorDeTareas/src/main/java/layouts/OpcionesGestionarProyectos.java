@@ -4,12 +4,19 @@
  */
 package layouts;
 
+import HoverButtons.ControllerAdministrarProyectos;
+import javax.swing.JOptionPane;
+import vista.AdministrarProyectos;
+
 /**
  *
  * @author Usuario
  */
 public class OpcionesGestionarProyectos extends javax.swing.JDialog {
   private int id_user;
+  private ModificarProyecto modificarProyecto;
+  private AdministrarProyectos administrarProyectos; //
+  private controller.ControllerAdministrarProyectos controllerAdminsProyect; //
   /**
    * Creates new form OpcionesGestionarProyectos
    */
@@ -22,6 +29,13 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
     this.id_user = id_user;
   }
 
+  public void obtenerVentanaAnterior(AdministrarProyectos administrarProyectos){
+    this.administrarProyectos = administrarProyectos;
+  }
+  
+  public void obtenerControllerProyecto(controller.ControllerAdministrarProyectos controllerAdminsProyect){
+    this.controllerAdminsProyect = controllerAdminsProyect;
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,21 +45,230 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jPanel1 = new javax.swing.JPanel();
+    jLabel17 = new javax.swing.JLabel();
+    txt_idProyecto = new javax.swing.JTextField();
+    jPanel5 = new javax.swing.JPanel();
+    btn_cancelar = new javax.swing.JButton();
+    jPanel7 = new javax.swing.JPanel();
+    btn_modificar = new javax.swing.JButton();
+    jPanel2 = new javax.swing.JPanel();
+    jPanel8 = new javax.swing.JPanel();
+    btn_ingresar = new javax.swing.JButton();
+    jPanel9 = new javax.swing.JPanel();
+    btn_eliminar = new javax.swing.JButton();
+
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+    jPanel1.setBackground(new java.awt.Color(19, 30, 35));
+
+    jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+    jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel17.setText("Ingresa el ID del Proyecto:");
+
+    txt_idProyecto.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txt_idProyectoActionPerformed(evt);
+      }
+    });
+
+    jPanel5.setBackground(new java.awt.Color(174, 7, 57));
+    jPanel5.setLayout(new java.awt.BorderLayout());
+
+    btn_cancelar.setBackground(new java.awt.Color(174, 7, 57));
+    btn_cancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+    btn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_cancelar.setText("CANCELAR");
+    btn_cancelar.setContentAreaFilled(false);
+    btn_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_cancelarActionPerformed(evt);
+      }
+    });
+    jPanel5.add(btn_cancelar, java.awt.BorderLayout.CENTER);
+
+    jPanel7.setBackground(new java.awt.Color(8, 131, 20));
+    jPanel7.setLayout(new java.awt.BorderLayout());
+
+    btn_modificar.setBackground(new java.awt.Color(0, 0, 0));
+    btn_modificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+    btn_modificar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_modificar.setText("MODIFICAR");
+    btn_modificar.setContentAreaFilled(false);
+    btn_modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_modificarActionPerformed(evt);
+      }
+    });
+    jPanel7.add(btn_modificar, java.awt.BorderLayout.CENTER);
+
+    jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+    jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+      public void mouseDragged(java.awt.event.MouseEvent evt) {
+        jPanel2MouseDragged(evt);
+      }
+    });
+    jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        jPanel2MousePressed(evt);
+      }
+    });
+
+    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+    jPanel2.setLayout(jPanel2Layout);
+    jPanel2Layout.setHorizontalGroup(
+      jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
+    jPanel2Layout.setVerticalGroup(
+      jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 31, Short.MAX_VALUE)
+    );
+
+    jPanel8.setBackground(new java.awt.Color(0, 140, 219));
+    jPanel8.setLayout(new java.awt.BorderLayout());
+
+    btn_ingresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+    btn_ingresar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_ingresar.setText("INGRESAR");
+    btn_ingresar.setContentAreaFilled(false);
+    btn_ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_ingresarActionPerformed(evt);
+      }
+    });
+    jPanel8.add(btn_ingresar, java.awt.BorderLayout.CENTER);
+
+    jPanel9.setBackground(new java.awt.Color(164, 35, 35));
+    jPanel9.setForeground(new java.awt.Color(255, 255, 255));
+    jPanel9.setLayout(new java.awt.BorderLayout());
+
+    btn_eliminar.setBackground(new java.awt.Color(164, 35, 35));
+    btn_eliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+    btn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+    btn_eliminar.setText("ELIMINAR");
+    btn_eliminar.setContentAreaFilled(false);
+    btn_eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_eliminarActionPerformed(evt);
+      }
+    });
+    jPanel9.add(btn_eliminar, java.awt.BorderLayout.CENTER);
+
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGap(28, 28, 28)
+            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txt_idProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGap(20, 20, 20)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGap(52, 52, 52)
+            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(36, 36, 36)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(44, 44, 44)
+            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    jPanel1Layout.setVerticalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel17)
+          .addComponent(txt_idProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(25, 25, 25)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(29, 29, 29)
+        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(5, 5, 5))
+    );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 400, Short.MAX_VALUE)
+      .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 300, Short.MAX_VALUE)
+      .addGroup(layout.createSequentialGroup()
+        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(0, 0, Short.MAX_VALUE))
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+
+  private void txt_idProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idProyectoActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_txt_idProyectoActionPerformed
+
+  private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+    this.setVisible(false);
+  }//GEN-LAST:event_btn_cancelarActionPerformed
+
+  private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+    modificarProyecto = new ModificarProyecto(this.administrarProyectos, true);
+    
+    if ("".equals(txt_idProyecto.getText())){
+      JOptionPane.showMessageDialog(null,"INGRESE EL ID DEL PROYECTO");
+    }else{
+      int id_proyecto = Integer.parseInt(txt_idProyecto.getText());
+    
+      if(this.controllerAdminsProyect.existeProyecto(this.id_user, id_proyecto)){
+        modificarProyecto.obtenerControllerAdministrarProyectos(this.controllerAdminsProyect);
+        modificarProyecto.id_proyecto = id_proyecto;
+        modificarProyecto.id_user = this.id_user;
+        modificarProyecto.rellenarCampos();
+        modificarProyecto.setVisible(true);
+        administrarProyectos.refrescarTablaProyectosAdmin();
+      }else{
+        JOptionPane.showMessageDialog(null,"EL CODIGO INGRESADO ES INCORRECTO, VUELVA INTENTAR");
+      }
+    }
+  }//GEN-LAST:event_btn_modificarActionPerformed
+
+  private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+
+  }//GEN-LAST:event_jPanel2MouseDragged
+
+  private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+
+  }//GEN-LAST:event_jPanel2MousePressed
+
+  private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
+    //INGRESANDO AL PROYECTO (>_<)
+    
+  }//GEN-LAST:event_btn_ingresarActionPerformed
+
+  private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+    int id_proyecto = Integer.parseInt(txt_idProyecto.getText());
+    if(this.controllerAdminsProyect.existeProyecto(this.id_user, id_proyecto)){
+      this.controllerAdminsProyect.eliminarProyecto(this.id_user, 1);
+    }else{
+      JOptionPane.showMessageDialog(null,"CODIGO INCORRECTO, VUELVA A INTENTAR");
+    }
+    this.administrarProyectos.refrescarTablaProyectosAdmin();
+  }//GEN-LAST:event_btn_eliminarActionPerformed
 
   /**
    * @param args the command line arguments
@@ -90,5 +313,17 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton btn_cancelar;
+  private javax.swing.JButton btn_eliminar;
+  private javax.swing.JButton btn_ingresar;
+  private javax.swing.JButton btn_modificar;
+  private javax.swing.JLabel jLabel17;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel2;
+  private javax.swing.JPanel jPanel5;
+  private javax.swing.JPanel jPanel7;
+  private javax.swing.JPanel jPanel8;
+  private javax.swing.JPanel jPanel9;
+  private javax.swing.JTextField txt_idProyecto;
   // End of variables declaration//GEN-END:variables
 }
