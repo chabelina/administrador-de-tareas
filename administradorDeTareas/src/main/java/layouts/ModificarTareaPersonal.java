@@ -20,11 +20,13 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     private boolean activo = false;
     private Calendario calendario;
     public String fechaLimite;
+    int xMouse, yMouse;
   /**
    * Creates new form ModificarTareaPersonal
    */
   public ModificarTareaPersonal(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
+    this.setUndecorated(true);
     initComponents();
     this.setLocationRelativeTo(null);
     
@@ -51,9 +53,6 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         boton_buscar_id = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -76,43 +75,12 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         boton_cancelar = new javax.swing.JButton();
         boton_guardar_cambios = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(19, 30, 35));
-
-        jPanel2.setBackground(new java.awt.Color(19, 30, 35));
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("MODIFICAR TAREA");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        jPanel3.setPreferredSize(new java.awt.Dimension(0, 2));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2, Short.MAX_VALUE)
-        );
 
         jPanel4.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -315,23 +283,59 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
                 .addGap(0, 14, Short.MAX_VALUE))
         );
 
-        boton_cancelar.setBackground(new java.awt.Color(217, 217, 217));
+        boton_cancelar.setBackground(new java.awt.Color(174, 7, 57));
         boton_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        boton_cancelar.setText("Cancelar");
+        boton_cancelar.setText("CANCELAR");
+        boton_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_cancelarActionPerformed(evt);
             }
         });
 
-        boton_guardar_cambios.setBackground(new java.awt.Color(217, 217, 217));
+        boton_guardar_cambios.setBackground(new java.awt.Color(0, 135, 103));
         boton_guardar_cambios.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        boton_guardar_cambios.setText("Guardar Cambios");
+        boton_guardar_cambios.setText("GUARDAR CAMBIOS");
+        boton_guardar_cambios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_guardar_cambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_guardar_cambiosActionPerformed(evt);
             }
         });
+
+        jPanel7.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel7MouseDragged(evt);
+            }
+        });
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel7MousePressed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("MODIFICAR TAREA");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -340,8 +344,6 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -349,23 +351,21 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(boton_guardar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(16, 16, 16)
+                                .addComponent(boton_guardar_cambios)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(boton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)))))
+                                .addGap(26, 26, 26)))))
                 .addContainerGap())
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -391,36 +391,42 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  private void txt_id_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_proyectoActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_txt_id_proyectoActionPerformed
+    private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
+        if(this.activo){
+            int valor = 0;
+            String nombre = this.txt_nombre_tarea.getText();
+            String descripcion = this.txt_descripcion_tarea.getText();
+            String prioridad = this.boton_opciones.getSelectedItem().toString();
+            valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion,prioridad,"");
+            //JOptionPane.showConfirmDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
+            JOptionPane.showMessageDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null,"Campo vacio id");
+        }
+    }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
 
-  private void boton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarActionPerformed
-      this.dispose();
-  }//GEN-LAST:event_boton_cancelarActionPerformed
-
-  private void boton_guardar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_cambiosActionPerformed
-    if(this.activo){
-        int valor = 0;
-        String nombre = this.txt_nombre_tarea.getText();
-        String descripcion = this.txt_descripcion_tarea.getText();
-        String prioridad = this.boton_opciones.getSelectedItem().toString();
-        valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion,prioridad,"");
-        //JOptionPane.showConfirmDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
-        JOptionPane.showMessageDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
+    private void boton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarActionPerformed
         this.dispose();
-    }else{
-        JOptionPane.showMessageDialog(null,"Campo vacio id");
-    }
-  }//GEN-LAST:event_boton_guardar_cambiosActionPerformed
+    }//GEN-LAST:event_boton_cancelarActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void boton_opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_opcionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_opcionesActionPerformed
+
+    private void txt_id_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_proyectoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_proyectoActionPerformed
 
     private void boton_buscar_idMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_buscar_idMouseClicked
         String id_ingresado = this.txt_id_proyecto.getText();
@@ -441,15 +447,29 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
             //JOptionPane.showConfirmDialog(null, "Por favor ingrese de manera correcta los campos");
             JOptionPane.showMessageDialog(null,"Por favor ingrese de manera correcta los campos");
         };
-        
+
     }//GEN-LAST:event_boton_buscar_idMouseClicked
 
-    private void boton_opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_opcionesActionPerformed
+    private void jPanel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boton_opcionesActionPerformed
+        
+        xMouse = evt.getX(); 
+        yMouse = evt.getY();    
+        
+    }//GEN-LAST:event_jPanel7MousePressed
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void jPanel7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseDragged
+        // TODO add your handling code here:
+        
+        // Calcula cuánto se ha movido el mouse desde que se presionó
+        int x = evt.getXOnScreen(); 
+        int y = evt.getYOnScreen(); 
+
+        // Mueve la ventana a su nueva posición 
+        this.setLocation(x - xMouse, y - yMouse);
+
+        
+    }//GEN-LAST:event_jPanel7MouseDragged
 
   /**
    * @param args the command line arguments
@@ -509,11 +529,10 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lb_estado;

@@ -291,7 +291,8 @@ public class AgregarNuevaTareaPersonal extends javax.swing.JDialog {
         panelRound4.add(jLabel16);
         jLabel16.setBounds(236, 281, 90, 28);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel4MouseDragged(evt);

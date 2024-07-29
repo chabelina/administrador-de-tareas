@@ -11,15 +11,29 @@ import vista.AdministrarProyectos;
  * @author Usuario
  */
 public class OpcionesGestionarProyectos extends javax.swing.JDialog {
+<<<<<<< Updated upstream
   private int id_user;
   private int id_proyecto;
   //private da
+=======
+
+    int xMouse, yMouse; 
+    
+>>>>>>> Stashed changes
   /**
    * Creates new form ModificarTareaPersonal
    */
   public OpcionesGestionarProyectos(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
+    this.setUndecorated(true);
     initComponents();
+    
+    // Hacer el fondo del diálogo transparente 
+    this.setBackground(new java.awt.Color(0, 0, 0, 0));
+
+    // Hacer el contenido del panel principal transparente 
+    ((javax.swing.JPanel)getContentPane()).setOpaque(false); 
+
     
     this.setLocationRelativeTo(null);
     
@@ -38,6 +52,7 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+<<<<<<< Updated upstream
     jPanel8 = new javax.swing.JPanel();
     jPanel1 = new javax.swing.JPanel();
     jPanel2 = new javax.swing.JPanel();
@@ -54,6 +69,21 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
     txtEliminar = new javax.swing.JButton();
     jPanel7 = new javax.swing.JPanel();
     txtCancelar = new javax.swing.JButton();
+=======
+        jPanel8 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        txt_nombreproyecto = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        txtIngresar = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        txtCancelar = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        txtModificar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        txtEliminar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+>>>>>>> Stashed changes
 
     jPanel8.setBackground(new java.awt.Color(19, 30, 35));
 
@@ -72,6 +102,7 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
 
     jPanel1.setBackground(new java.awt.Color(19, 30, 35));
 
+<<<<<<< Updated upstream
     jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -172,6 +203,24 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
     jPanel3.add(txtEliminar, java.awt.BorderLayout.CENTER);
 
     jPanel7.setLayout(new java.awt.BorderLayout());
+=======
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Ingresa el ID del PROYECTO:");
+
+        jPanel6.setBackground(new java.awt.Color(0, 135, 103));
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
+        txtIngresar.setBackground(new java.awt.Color(0, 135, 103));
+        txtIngresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtIngresar.setText("INGRESAR");
+        txtIngresar.setContentAreaFilled(false);
+        txtIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.add(txtIngresar, java.awt.BorderLayout.CENTER);
+
+        jPanel7.setBackground(new java.awt.Color(174, 7, 57));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+>>>>>>> Stashed changes
 
     txtCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
     txtCancelar.setText("CANCELAR");
@@ -184,6 +233,7 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
     });
     jPanel7.add(txtCancelar, java.awt.BorderLayout.CENTER);
 
+<<<<<<< Updated upstream
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
@@ -254,6 +304,109 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
+=======
+        jPanel5.setBackground(new java.awt.Color(204, 204, 0));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        txtModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtModificar.setText("MODIFICAR");
+        txtModificar.setContentAreaFilled(false);
+        txtModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModificarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtModificar, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        txtEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEliminar.setText("ELIMINAR");
+        txtEliminar.setContentAreaFilled(false);
+        txtEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtEliminar, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel17)
+                .addGap(39, 39, 39)
+                .addComponent(txt_nombreproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(txt_nombreproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+>>>>>>> Stashed changes
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -264,12 +417,39 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
 
     private void txtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCancelarActionPerformed
         // TODO add your handling code here:
+        
+        this.dispose();
+        
     }//GEN-LAST:event_txtCancelarActionPerformed
 
+<<<<<<< Updated upstream
   private void txtIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarActionPerformed
     this.id_proyecto = Integer.parseInt(txt_idProyecto.getText());
     
   }//GEN-LAST:event_txtIngresarActionPerformed
+=======
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+        // TODO add your handling code here:
+        
+        xMouse = evt.getX(); 
+        yMouse = evt.getY();
+
+        
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+        // TODO add your handling code here:
+        
+        // Calcula cuánto se ha movido el mouse desde que se presionó
+        int x = evt.getXOnScreen(); 
+        int y = evt.getYOnScreen(); 
+
+        // Mueve la ventana a su nueva posición 
+        this.setLocation(x - xMouse, y - yMouse);
+
+        
+    }//GEN-LAST:event_jPanel2MouseDragged
+>>>>>>> Stashed changes
 
   /**
    * @param args the command line arguments
@@ -320,6 +500,7 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
     });
   }
 
+<<<<<<< Updated upstream
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel17;
   private javax.swing.JPanel jPanel1;
@@ -338,4 +519,21 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
   private javax.swing.JButton txtModificar;
   private javax.swing.JTextField txt_idProyecto;
   // End of variables declaration//GEN-END:variables
+=======
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JButton txtCancelar;
+    private javax.swing.JButton txtEliminar;
+    private javax.swing.JButton txtIngresar;
+    private javax.swing.JButton txtModificar;
+    private javax.swing.JTextField txt_nombreproyecto;
+    // End of variables declaration//GEN-END:variables
+>>>>>>> Stashed changes
 }
