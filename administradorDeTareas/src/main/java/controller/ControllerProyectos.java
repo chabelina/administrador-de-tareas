@@ -100,6 +100,11 @@ public class ControllerProyectos {
         List<String[]> datos = this.conexion.valores_array(consulta);
         return datos;
     }
+    public List<String[]> fecha_limite(int id){
+        String consulta = "SELECT id,nombre,descripcion,prioridad,fechaLimite FROM tareas_activas where id_usuario = "+id+" order by fechaLimite asc ";
+        List<String[]> datos = this.conexion.valores_array(consulta);
+        return datos;
+    }
     public String[] datos_unicos(int id,int id_user){
         String consulta = "SELECT * FROM tareaspersonales where id = "+id+" and id_usuario = "+id_user+";";
         String[] datos = this.conexion.valores_array(consulta).get(0);

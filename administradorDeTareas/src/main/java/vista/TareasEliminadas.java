@@ -20,6 +20,7 @@ import EstilosComponents.GestionEncabezadoTabla;
 public class TareasEliminadas extends javax.swing.JFrame {
     public Controller controller;
     public TareasPendientesPorRealizar tareasPersonales;
+    private int id_user;
     /**
      * Creates new form TareasEliminadas
      */
@@ -28,13 +29,14 @@ public class TareasEliminadas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         controller = new Controller(this);
-       
     }
     
     public void obtenerVentanAnterior(TareasPendientesPorRealizar v1){
       this.tareasPersonales = v1;
     }
-
+    public void set_id_user(int id){
+        this.id_user = id;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -39,10 +39,10 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         initComponents();
         tareasEliminadas = new TareasEliminadas();
         Menu = new PrincipalesOpciones();
-        
-        
         this.setLocationRelativeTo(null);
-        ControllerGestionarTareas = new ControllerGestionarTareas(this); 
+        tareasEliminadas.set_id_user(this.datos_user.getId_usuario());
+        ControllerGestionarTareas = new ControllerGestionarTareas(this);
+        
     //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
     }
     
@@ -300,7 +300,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAgregarNuevaTareaActionPerformed
 
     private void BtnLimpiarListaTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarListaTareasActionPerformed
-        // TODO add your handling code here:
+        this.agregar_datos_tabla();
     }//GEN-LAST:event_BtnLimpiarListaTareasActionPerformed
 
     private void ModificarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarTareaActionPerformed
@@ -364,7 +364,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         
         this.tabla_datos_principal1.setModel(modelo);
         if(clikeado.equals("FECHA LIMITE")){
-            datos = this.conexion.tareas_usuario(this.datos_user.getId_usuario());
+            datos = this.conexion.fecha_limite(this.datos_user.getId_usuario());
             for(String[] dato : datos){
                 modelo.addRow(dato);
             }
