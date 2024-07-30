@@ -47,4 +47,9 @@ public class ControllerGestionarTareasComoAdministrador {
   public void guardarCambiosDeTareaAsignada(int id_proyecto ,String nombre, String des, String prio, String fechaLimite, int id_user){
     int resultado = this.conexion.Ubdate_date("update tareasdelproyectoasignadas set nombre = '"+nombre+"', descripcion = '"+des+"', prioridad = '"+prio+"' , fechaLimite = '"+fechaLimite+"', id_usuario = "+id_user+" where id = "+id_proyecto+";");
   }
+  
+  
+  public void guardarTarea(int id_proyecto ,String nombre, String des, String prio, String fechaLimite, int id_Participante, int id_Admin){
+    String resultado = this.conexion.insert_date("INSERT INTO tareasdelproyectoasignadas (nombre,descripcion,prioridad,fechaLimite,creadorDeLaTarea,id_usuario,id_proyecto)VALUES('"+nombre+"','"+des+"','"+prio+"','"+fechaLimite+"',"+id_Admin+","+id_Participante+","+id_proyecto+");");    
+  }
 }

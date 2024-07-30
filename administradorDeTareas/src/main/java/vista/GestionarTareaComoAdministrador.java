@@ -22,6 +22,8 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
   private ModificarTareaAsignada modificarTarea;
   public ControllerGestionarTareasComoAdministrador controllerGTCA = new ControllerGestionarTareasComoAdministrador();
   private VisualizarIntegrantes visualizarIntegrantes = new VisualizarIntegrantes();
+  private AsignarNuevaTarea asignarTarea;
+  
   public int id_proyecto;
   public int id_user;
     
@@ -259,11 +261,9 @@ public class GestionarTareaComoAdministrador extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
     private void btn_asignarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarTareaActionPerformed
-        // TODO add your handling code here:
-
-        AsignarNuevaTarea asignarTarea = new AsignarNuevaTarea(this, true);
-        asignarTarea.setVisible(true);
-
+      asignarTarea = new AsignarNuevaTarea(this, true);
+      asignarTarea.obtenerVentanaAnterior(this);
+      asignarTarea.setVisible(true);
     }//GEN-LAST:event_btn_asignarTareaActionPerformed
 
     private void btn_modificarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarTareaActionPerformed
