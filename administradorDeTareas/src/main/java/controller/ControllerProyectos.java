@@ -115,7 +115,7 @@ public class ControllerProyectos {
         try {
 //            UPDATE `softwaretareas`.`tareaspersonales` SET `nombre` = 'probando', `descripcion` = 'prueba', `prioridad` = 'MEDIA', `fechaLimite` = '2024-07-32' WHERE (`id` = '5');
 
-            String consulta = "UPDATE `tareaspersonales` SET `nombre` = '"+nombre+"', `descripcion` = '"+descr+"', `prioridad` = '"+prioridad+"' WHERE (`id` = "+id+");";
+            String consulta = "UPDATE `tareaspersonales` SET `nombre` = '"+nombre+"', `descripcion` = '"+descr+"', `prioridad` = '"+prioridad+"', fechaLimite = '"+fecha+"'  WHERE (`id` = "+id+");";
             this.conexion.Ubdate_date(consulta);
             valor = 1;
         } catch (Exception e) {

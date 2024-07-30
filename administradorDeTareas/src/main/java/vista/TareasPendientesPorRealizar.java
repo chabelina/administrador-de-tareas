@@ -306,6 +306,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         ModificarTareaPersonal modificarTarea = new ModificarTareaPersonal( (java.awt.Frame) this.getParent(), true);
+        modificarTarea.obtenerPadreAnterior(this);
         modificarTarea.dar_valores_predeterminado(this.datos_user.getId_usuario());
         modificarTarea.setVisible(true);
         this.agregar_datos_tabla();

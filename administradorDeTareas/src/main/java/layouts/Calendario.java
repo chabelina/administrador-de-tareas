@@ -20,7 +20,7 @@ public class Calendario extends javax.swing.JDialog {
    */
   public Calendario(java.awt.Frame parent, boolean modal) {
     super(parent, modal);
-    this.calendario.setMinSelectableDate(new Date());
+    //this.calendario.setMinSelectableDate(new Date());
     initComponents();
     this.setLocationRelativeTo(null);
   }
