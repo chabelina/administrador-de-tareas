@@ -395,6 +395,8 @@ public class PrincipalesOpciones extends javax.swing.JFrame {
         System.out.println("clikeado tareas");
         this.administrar_proyecto.setVisible(true);
         this.administrar_proyecto.setMenu(this);
+        this.administrar_proyecto.refrescarTablaProyectosAdmin();
+        this.administrar_proyecto.refrescarTablaProyectosParticipante();
         //this.administrar_proyecto.set_usuario_date(this.user);
         this.setVisible(false);
         

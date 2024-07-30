@@ -152,8 +152,9 @@ public class TareasEliminadas extends javax.swing.JFrame {
     }//GEN-LAST:event_recuperarActionPerformed
 
     private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
-        this.tareasPersonales.setVisible(true);
-        this.setVisible(false);
+      this.tareasPersonales.agregar_datos_tabla();
+      this.tareasPersonales.setVisible(true);
+      this.setVisible(false);
     }//GEN-LAST:event_icono_RegresarMouseClicked
     public void agregar_datos_tabla(){
         DefaultTableModel modelo = new DefaultTableModel(){

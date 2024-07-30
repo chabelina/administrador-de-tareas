@@ -78,7 +78,6 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     jPanel6 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
     lb_estado = new javax.swing.JLabel();
-    cbx_prioridad = new javax.swing.JComboBox<>();
     jPanel10 = new javax.swing.JPanel();
     jLabel13 = new javax.swing.JLabel();
     boton_opciones = new javax.swing.JComboBox<>();
@@ -204,8 +203,6 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    cbx_prioridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "alta", "media", "baja" }));
-
     javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
     jPanel9.setLayout(jPanel9Layout);
     jPanel9Layout.setHorizontalGroup(
@@ -213,9 +210,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
       .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
       .addGroup(jPanel9Layout.createSequentialGroup()
         .addComponent(txt_descripcion_tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(31, 31, 31)
-        .addComponent(cbx_prioridad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
@@ -228,10 +223,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
           .addComponent(txt_descripcion_tarea, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
           .addGroup(jPanel9Layout.createSequentialGroup()
             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, Short.MAX_VALUE))
-          .addGroup(jPanel9Layout.createSequentialGroup()
-            .addComponent(cbx_prioridad)
-            .addContainerGap())))
+            .addGap(0, 0, Short.MAX_VALUE))))
     );
 
     jPanel10.setBackground(new java.awt.Color(19, 30, 35));
@@ -241,7 +233,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
     jLabel13.setText("PRIORIDAD");
 
     boton_opciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    boton_opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALTA", "MEDIA", "BAJA" }));
+    boton_opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "alta", "media", "baja" }));
     boton_opciones.setBorder(null);
     boton_opciones.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,6 +296,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
 
     boton_cancelar.setBackground(new java.awt.Color(174, 7, 57));
     boton_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    boton_cancelar.setForeground(new java.awt.Color(255, 255, 255));
     boton_cancelar.setText("CANCELAR");
     boton_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     boton_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -314,6 +307,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
 
     boton_guardar_cambios.setBackground(new java.awt.Color(0, 135, 103));
     boton_guardar_cambios.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    boton_guardar_cambios.setForeground(new java.awt.Color(255, 255, 255));
     boton_guardar_cambios.setText("GUARDAR CAMBIOS");
     boton_guardar_cambios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     boton_guardar_cambios.addActionListener(new java.awt.event.ActionListener() {
@@ -420,10 +414,9 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
             int valor = 0;
             String nombre = this.txt_nombre_tarea.getText();
             String descripcion = this.txt_descripcion_tarea.getText();
-            String prioridad_test = (String) cbx_prioridad.getSelectedItem();
-            String prioridad = this.boton_opciones.getSelectedItem().toString();
+            String prioridad = (String) this.boton_opciones.getSelectedItem();
             String fechaLimiteActualizada = btn_fecha.getText();
-            valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion,fechaLimiteActualizada,prioridad_test);
+            valor = this.conexion.actualizar_cambios(this.id_tarea, nombre, descripcion,fechaLimiteActualizada,prioridad);
             //JOptionPane.showConfirmDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
             JOptionPane.showMessageDialog(null, (valor == 1)?"ACTUALIZADO CON EXITO":"ERROR AL ACTUALIZAR");
             this.dispose();
@@ -462,7 +455,7 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
             System.out.println(Arrays.toString(datos));
             this.txt_nombre_tarea.setText( datos[2] );
             this.txt_descripcion_tarea.setText(datos[3]);
-            this.cbx_prioridad.setSelectedItem(datos[4]);
+            this.boton_opciones.setSelectedItem(datos[4]);
             this.btn_fecha.setText(datos[5]);
             this.activo = true;
             this.id_tarea = Integer.parseInt(id_ingresado);
@@ -543,7 +536,6 @@ public class ModificarTareaPersonal extends javax.swing.JDialog {
   private javax.swing.JButton boton_guardar_cambios;
   private javax.swing.JComboBox<String> boton_opciones;
   private javax.swing.JLabel btn_fecha;
-  private javax.swing.JComboBox<String> cbx_prioridad;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel13;

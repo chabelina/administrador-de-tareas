@@ -186,4 +186,7 @@ public class ControllerProyectos {
         List<String[]> datos = this.conexion.valores_array(consulta);
         return datos.get(0);
     }
+    public void eliminarTodasLasTareaPersonales (int id_user){
+      int resultado = this.conexion.Ubdate_date("update tareaspersonales set activo = 0 where id_usuario = "+id_user+";");   
+    }
 }

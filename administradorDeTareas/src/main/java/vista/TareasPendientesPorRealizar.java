@@ -290,7 +290,30 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_regresarActionPerformed
-
+     
+    public void limpiarLaTabla(){
+      
+      DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row,int colum){
+                return false;
+            }
+        }; 
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE DE LA TAREA");
+        modelo.addColumn("DESCRIPCION");
+        modelo.addColumn("PRIORIDAD");
+        modelo.addColumn("FECHA LIMITE");
+        
+        this.tabla_datos_principal1.setModel(modelo);
+        
+        int fila = modelo.getRowCount();
+        for(int i = fila-1 ; i>=0; i--){
+          modelo.removeRow(i);
+        }
+    }
+    
     private void BtnAgregarNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarNuevaTareaActionPerformed
         AgregarNuevaTareaPersonal agregarTarea = new AgregarNuevaTareaPersonal(this, true);
         agregarTarea.valor_insert(this.datos_user.getId_usuario());
@@ -299,7 +322,9 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAgregarNuevaTareaActionPerformed
 
     private void BtnLimpiarListaTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarListaTareasActionPerformed
-        this.agregar_datos_tabla();
+      this.conexion.eliminarTodasLasTareaPersonales(this.datos_user.getId_usuario());
+      System.out.println("TODAS LAS TAREAS PERSONALES FUERON ELIMINADAS");
+      this.agregar_datos_tabla();
     }//GEN-LAST:event_BtnLimpiarListaTareasActionPerformed
 
     private void ModificarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarTareaActionPerformed
