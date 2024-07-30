@@ -7,8 +7,15 @@ package vista;
 import EstilosComponents.GestionEncabezadoTabla;
 import controller.ControllerProyectos;
 import estilosComponents.CentrarDatosDeTabla;
+import java.awt.Component;
 import java.util.List;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
@@ -40,6 +47,8 @@ public class TareasComoParticipante extends javax.swing.JFrame {
     this.MenuProyectos = datos;
     this.id_proyecto = id_proyecto;
     this.id_usuario = id_user;
+    this.completar_datos_archivo();
+    this.cambiar_datos();
   }
   
   public void completar_datos_archivo(){
@@ -49,20 +58,30 @@ public class TareasComoParticipante extends javax.swing.JFrame {
               return false;
           }
       };
+      modelo.addColumn("ESTADO");
       modelo.addColumn("id");
       modelo.addColumn("Nombre de la tarea");
       modelo.addColumn("DESCRIPCION");
-      modelo.addColumn("ESTADO");
       modelo.addColumn("PRIORIDAD");
       modelo.addColumn("FECHA LIMITE");
 
     List<String[]> datos = this.conexion.mostras_tareas_usuarios(id_usuario, id_proyecto);
       
     for(String[] dato : datos){
-        modelo.addRow(dato);
+        //modelo.addRow(dato);
+        Object[] fila = new Object[dato.length + 1];
+        fila[0] = (dato[8].equals("hecho"))? true:false; // Inicializa la casilla de verificación como desmarcada
+        System.arraycopy(dato, 0, fila, 1, dato.length);
+        modelo.addRow(fila);
     }
 
-    this.table_tareas.setModel(modelo);
+    this.datos_usuario.setModel(modelo);
+  
+  }
+  public void cambiar_datos(){
+      String[] datos = this.conexion.datos_proyecto(this.id_proyecto);
+      this.label_nombre_proyecto.setText(datos[1]);
+      this.label_descripcion.setText(datos[2]);
   }
   /**
    * This method is called from within the constructor to initialize the form.
@@ -77,13 +96,14 @@ public class TareasComoParticipante extends javax.swing.JFrame {
         table_tareas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        label_nombre_proyecto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         datos_usuario = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
         label_descripcion = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         icono_Regresar = new javax.swing.JLabel();
         btn_actualizar = new javax.swing.JToggleButton();
+        label_nombre_proyecto = new javax.swing.JLabel();
 
         table_tareas.setBackground(new java.awt.Color(19, 30, 35));
         table_tareas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -117,10 +137,6 @@ public class TareasComoParticipante extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
-        label_nombre_proyecto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        label_nombre_proyecto.setForeground(new java.awt.Color(255, 255, 255));
-        label_nombre_proyecto.setText("NOMBRE DEL PROYECTO");
-
         datos_usuario.setBackground(new java.awt.Color(19, 30, 35));
         datos_usuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         datos_usuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,30 +154,43 @@ public class TareasComoParticipante extends javax.swing.JFrame {
 
         label_descripcion.setText("jLabel1");
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label_descripcion)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(label_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_nombre_proyecto)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(label_nombre_proyecto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_descripcion)
-                .addGap(10, 10, 10)
+                .addGap(17, 17, 17)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -200,7 +229,13 @@ public class TareasComoParticipante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_actualizar);
-        btn_actualizar.setBounds(870, 50, 102, 60);
+        btn_actualizar.setBounds(870, 50, 190, 60);
+
+        label_nombre_proyecto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        label_nombre_proyecto.setForeground(new java.awt.Color(255, 255, 255));
+        label_nombre_proyecto.setText("NOMBRE DEL PROYECTO");
+        jPanel1.add(label_nombre_proyecto);
+        label_nombre_proyecto.setBounds(60, 100, 215, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,7 +264,7 @@ public class TareasComoParticipante extends javax.swing.JFrame {
     }//GEN-LAST:event_icono_RegresarMouseClicked
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
   /**
@@ -277,6 +312,7 @@ public class TareasComoParticipante extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel label_descripcion;

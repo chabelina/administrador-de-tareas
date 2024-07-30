@@ -169,14 +169,21 @@ public class ControllerProyectos {
         List<String[]> datos = this.conexion.valores_array(consulta);
         return datos;
     }
-    public String[] mostrar_datos_proyecto_unico(int id_user,int id_proyecto){
-        String consulta = "select id_proyecto,nombre_p from proyectos_usuarios where id_user = "+id_user+" and  rol = \"participante\" and id_proyecto = "+id_proyecto+";";
-        String[] datos = this.conexion.valores_array(consulta).get(0);
+    public List<String[]> mostrar_datos_proyecto_unico(int id_user,int id_proyecto){
+       
+        String consulta = "select id_proyecto,nombre_p from proyectos_usuarios where id_user = '"+id_user+"' and  rol = 'participante' and id_proyecto = '"+id_proyecto+"';";
+        System.out.println(consulta);
+        List<String[]> datos = this.conexion.valores_array(consulta);
         return datos;
     }
     public List<String[]> mostras_tareas_usuarios(int id_user,int id_proyecto){
-        String consulta = "SELECT * FROM softwaretareas.tareasdelproyectoasignadas where  id_proyecto = "+id_proyecto+" and curdate() < fechaLimite and id_usuario = "+id_user+";";
+        String consulta = "SELECT * FROM softwaretareas.tareasdelproyectoasignadas where  id_proyecto = "+id_proyecto+" and curdate() <= fechaLimite and id_usuario = "+id_user+";";
         List<String[]> datos = this.conexion.valores_array(consulta);
         return datos;
+    }
+    public String[] datos_proyecto(int proyecto){
+        String consulta = "SELECT * FROM proyecto where id = "+proyecto+";";
+        List<String[]> datos = this.conexion.valores_array(consulta);
+        return datos.get(0);
     }
 }

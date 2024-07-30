@@ -302,11 +302,16 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         OpcionesGestionarProyectoParticipante gestionarProyectosParticipante = new OpcionesGestionarProyectoParticipante(this, true);
-        gestionarProyectosParticipante.setVisible(true);
+        //gestionarProyectosParticipante.setVisible(true);
+        gestionarProyectosParticipante.set_id_user(id_user);
         int opcion_cliente = gestionarProyectosParticipante.retornar_opcion();
+        System.out.println("opcion : "+opcion_cliente);
         if(opcion_cliente > 0){
             TareasComoParticipante dato = new TareasComoParticipante(); 
+            dato.iniciar_componentes(this, opcion_cliente, id_user);
             this.setVisible(false);
+            dato.setVisible(true);
+            
         }
     }//GEN-LAST:event_GestProyParticipanteActionPerformed
 

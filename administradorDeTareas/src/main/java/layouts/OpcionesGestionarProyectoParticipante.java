@@ -5,6 +5,8 @@
 package layouts;
 
 import controller.ControllerProyectos;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -27,7 +29,9 @@ public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
     this.setLocationRelativeTo(null);
     
   }
-
+  public void set_id_user(int id_user){
+       this.id_user = id_user;
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,16 +181,19 @@ public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txtIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarActionPerformed
         String id_gestionar = this.txt_nombreproyecto.getText();
+        List<String[]> datos = null;
         try {
-            String[] datos = this.conexion.mostrar_datos_proyecto_unico(this.id_user,Integer.parseInt(id_gestionar));
-            if(datos.length >= 1){
-                this.opcion = Integer.parseInt(datos[0]);
+            datos = this.conexion.mostrar_datos_proyecto_unico(this.id_user,Integer.parseInt(id_gestionar));
+            System.out.println("datos : "+ Arrays.toString(datos.get(0)));
+            if(datos.get(0).length >= 1){
+                this.opcion = Integer.parseInt(datos.get(0)[0]);
             }
         } catch (Exception e) {
             this.opcion = -2;
+            System.out.println("error: "+e);
         }
         this.dispose();
     }//GEN-LAST:event_txtIngresarActionPerformed
