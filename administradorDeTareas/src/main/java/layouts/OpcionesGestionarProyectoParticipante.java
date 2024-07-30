@@ -4,12 +4,16 @@
  */
 package layouts;
 
+import controller.ControllerProyectos;
+
 /**
  *
  * @author Usuario
  */
 public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
-
+    private int opcion = -1;
+    private ControllerProyectos conexion = new ControllerProyectos(); 
+    private int id_user = -1;
     int xMouse, yMouse;
     
   /**
@@ -175,7 +179,16 @@ public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
   }// </editor-fold>//GEN-END:initComponents
 
     private void txtIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarActionPerformed
-        // TODO add your handling code here:
+        String id_gestionar = this.txt_nombreproyecto.getText();
+        try {
+            String[] datos = this.conexion.mostrar_datos_proyecto_unico(this.id_user,Integer.parseInt(id_gestionar));
+            if(datos.length >= 1){
+                this.opcion = Integer.parseInt(datos[0]);
+            }
+        } catch (Exception e) {
+            this.opcion = -2;
+        }
+        
     }//GEN-LAST:event_txtIngresarActionPerformed
 
     private void txtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCancelarActionPerformed
@@ -279,4 +292,8 @@ public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
   private javax.swing.JButton txtIngresar;
   private javax.swing.JTextField txt_nombreproyecto;
   // End of variables declaration//GEN-END:variables
+  public int retornar_opcion(){
+      this.setVisible(true);
+      return this.opcion;
+  }
 }

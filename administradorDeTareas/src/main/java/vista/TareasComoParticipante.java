@@ -5,7 +5,9 @@
 package vista;
 
 import EstilosComponents.GestionEncabezadoTabla;
+import controller.ControllerProyectos;
 import estilosComponents.CentrarDatosDeTabla;
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -20,7 +22,9 @@ import javax.swing.table.TableColumn;
 public class TareasComoParticipante extends javax.swing.JFrame {
 
     private AdministrarProyectos MenuProyectos;
-    
+    private ControllerProyectos conexion = new ControllerProyectos();
+    private int id_proyecto = -1;
+    private int id_usuario = 1;
   /**
    * Creates new form GestionarTareaComoAdministrador
    */
@@ -30,12 +34,36 @@ public class TareasComoParticipante extends javax.swing.JFrame {
   public TareasComoParticipante() {
     initComponents();
     
-    MenuProyectos = new AdministrarProyectos();
-    
     modelo = new DefaultTableModel();
-    
   }
+  public void iniciar_componentes (AdministrarProyectos  datos,int id_proyecto,int id_user){
+    this.MenuProyectos = datos;
+    this.id_proyecto = id_proyecto;
+    this.id_usuario = id_user;
+  }
+  
+  public void completar_datos_archivo(){
+      DefaultTableModel modelo = new DefaultTableModel(){
+          @Override
+          public boolean isCellEditable(int row,int colum){
+              return false;
+          }
+      };
+      modelo.addColumn("id");
+      modelo.addColumn("Nombre de la tarea");
+      modelo.addColumn("DESCRIPCION");
+      modelo.addColumn("ESTADO");
+      modelo.addColumn("PRIORIDAD");
+      modelo.addColumn("FECHA LIMITE");
 
+    List<String[]> datos = this.conexion.mostras_tareas_usuarios(id_usuario, id_proyecto);
+      
+    for(String[] dato : datos){
+        modelo.addRow(dato);
+    }
+
+    this.table_tareas.setModel(modelo);
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,11 +77,13 @@ public class TareasComoParticipante extends javax.swing.JFrame {
         table_tareas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        label_nombre_proyecto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        datos_usuario = new javax.swing.JTable();
+        label_descripcion = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         icono_Regresar = new javax.swing.JLabel();
+        btn_actualizar = new javax.swing.JToggleButton();
 
         table_tareas.setBackground(new java.awt.Color(19, 30, 35));
         table_tareas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -87,14 +117,14 @@ public class TareasComoParticipante extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(19, 30, 35));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("NOMBRE DEL PROYECTO");
+        label_nombre_proyecto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        label_nombre_proyecto.setForeground(new java.awt.Color(255, 255, 255));
+        label_nombre_proyecto.setText("NOMBRE DEL PROYECTO");
 
-        jTable1.setBackground(new java.awt.Color(19, 30, 35));
-        jTable1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        datos_usuario.setBackground(new java.awt.Color(19, 30, 35));
+        datos_usuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        datos_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        datos_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -102,33 +132,42 @@ public class TareasComoParticipante extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setMinimumSize(new java.awt.Dimension(200, 80));
-        jScrollPane1.setViewportView(jTable1);
+        datos_usuario.setColumnSelectionAllowed(true);
+        datos_usuario.setMinimumSize(new java.awt.Dimension(200, 80));
+        jScrollPane1.setViewportView(datos_usuario);
+
+        label_descripcion.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_nombre_proyecto)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addComponent(label_nombre_proyecto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_descripcion)
+                .addGap(10, 10, 10)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(46, 121, 1279, 499);
+        jPanel2.setBounds(46, 121, 1279, 495);
 
         jButton2.setBackground(new java.awt.Color(0, 140, 219));
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -153,6 +192,15 @@ public class TareasComoParticipante extends javax.swing.JFrame {
         });
         jPanel1.add(icono_Regresar);
         icono_Regresar.setBounds(50, 40, 60, 60);
+
+        btn_actualizar.setText("ACTUALIZAR ");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_actualizar);
+        btn_actualizar.setBounds(870, 50, 102, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,6 +227,10 @@ public class TareasComoParticipante extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_icono_RegresarMouseClicked
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
   /**
    * @param args the command line arguments
@@ -219,14 +271,16 @@ public class TareasComoParticipante extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btn_actualizar;
+    private javax.swing.JTable datos_usuario;
     private javax.swing.JLabel icono_Regresar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel label_descripcion;
+    private javax.swing.JLabel label_nombre_proyecto;
     private javax.swing.JTable table_tareas;
     // End of variables declaration//GEN-END:variables
 }

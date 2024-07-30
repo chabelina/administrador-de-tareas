@@ -2,6 +2,7 @@
 package vista;
 
 import HoverButtons.ControllerAdministrarProyectos;
+import controller.ControllerProyectos;
 import layouts.OpcionesGestionarProyectos;
 import layouts.OpcionesGestionarProyectoParticipante;
 
@@ -14,6 +15,7 @@ public class AdministrarProyectos extends javax.swing.JFrame {
     private PrincipalesOpciones Menu;
     private int id_user;
     private controllerUsuario user;
+    private ControllerProyectos conexion = new ControllerProyectos();
 
     public AdministrarProyectos(){
       initComponents();
@@ -52,7 +54,7 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         }
 
         this.TablaAdmin.setModel(modelo);
-        }
+      }
     }
     
     public void refrescarTablaProyectosParticipante(){
@@ -66,14 +68,13 @@ public class AdministrarProyectos extends javax.swing.JFrame {
       modelo.addColumn("ID");
       modelo.addColumn("NOMBRE DEL PROYECTO");
 
-      List<String[]> datos = this.ControllerAdministrarProyectos.getProyecto_userParticipante();
+      List<String[]> datos = this.conexion.mostrar_proyectos_participante(id_user);
       for(String[] dato : datos){
           modelo.addRow(dato);
       }
       
       this.TablaParticipante.setModel(modelo);
     }
-    
     public void limpiarTabla(DefaultTableModel modelo){
       int fila = modelo.getRowCount();
       for(int i = fila-1 ; i>=0; i--){
@@ -302,6 +303,11 @@ public class AdministrarProyectos extends javax.swing.JFrame {
         
         OpcionesGestionarProyectoParticipante gestionarProyectosParticipante = new OpcionesGestionarProyectoParticipante(this, true);
         gestionarProyectosParticipante.setVisible(true);
+        int opcion_cliente = gestionarProyectosParticipante.retornar_opcion();
+        if(opcion_cliente > 0){
+            TareasComoParticipante dato = new TareasComoParticipante(); 
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_GestProyParticipanteActionPerformed
 
     private void icono_RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_RegresarMouseClicked
