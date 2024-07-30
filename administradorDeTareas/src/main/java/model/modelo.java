@@ -15,10 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class modelo {
-    private String host = "jdbc:mysql://localhost:3306/";
-    private String user = "root";
-    private String pass = "";
-    private String bd = "ficheros";
+    private String host = "jdbc:mysql://bn0ilnlyhrxbm9i77h9g-mysql.services.clever-cloud.com:3306/";
+    private String user = "uqhsne5tpisiewkf";
+    private String pass = "CukGwK2jeGwgRumhQqdW";
+    private String bd = "bn0ilnlyhrxbm9i77h9g";
     private String driver = "com.mysql.cj.jdbc.Driver";
     private Connection conexion;
 

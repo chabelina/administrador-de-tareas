@@ -188,7 +188,7 @@ public class OpcionesGestionarProyectoParticipante extends javax.swing.JDialog {
         } catch (Exception e) {
             this.opcion = -2;
         }
-        
+        this.dispose();
     }//GEN-LAST:event_txtIngresarActionPerformed
 
     private void txtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCancelarActionPerformed
