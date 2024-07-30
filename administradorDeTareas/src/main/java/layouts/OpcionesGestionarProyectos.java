@@ -7,6 +7,7 @@ package layouts;
 import HoverButtons.ControllerAdministrarProyectos;
 import javax.swing.JOptionPane;
 import vista.AdministrarProyectos;
+import vista.GestionarTareaComoAdministrador;
 
 /**
  *
@@ -14,9 +15,11 @@ import vista.AdministrarProyectos;
  */
 public class OpcionesGestionarProyectos extends javax.swing.JDialog {
   private int id_user;
+  private int id_proyecto;
   private ModificarProyecto modificarProyecto;
   private AdministrarProyectos administrarProyectos; //
   private controller.ControllerAdministrarProyectos controllerAdminsProyect; //
+  private GestionarTareaComoAdministrador gestionarTareasAdministrador;
   /**
    * Creates new form OpcionesGestionarProyectos
    */
@@ -257,7 +260,20 @@ public class OpcionesGestionarProyectos extends javax.swing.JDialog {
 
   private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
     //INGRESANDO AL PROYECTO (>_<)
-    
+    this.id_proyecto = Integer.parseInt(txt_idProyecto.getText());
+    if(this.controllerAdminsProyect.existeProyecto(this.id_user, this.id_proyecto)){
+      this.gestionarTareasAdministrador = new GestionarTareaComoAdministrador();
+      this.gestionarTareasAdministrador.obtenerAdministrarProyectos(this.administrarProyectos);
+      this.gestionarTareasAdministrador.obtenerOpcGestionarProyecto(this);
+      this.gestionarTareasAdministrador.obtener_id_proyecto_user(this.id_user, this.id_proyecto);
+      this.gestionarTareasAdministrador.setVisible(true);
+      this.administrarProyectos.setVisible(false);
+      this.setVisible(false);
+      this.gestionarTareasAdministrador.refrescarTablaTareasAsignadas();
+      
+    }else{
+      JOptionPane.showMessageDialog(null,"EL ID INGRESADO NO PERTENECE A NINGUN PROYECTO");
+    }
   }//GEN-LAST:event_btn_ingresarActionPerformed
 
   private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
