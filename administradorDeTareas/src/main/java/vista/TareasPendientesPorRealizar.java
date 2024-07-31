@@ -17,7 +17,7 @@ import javax.swing.table.JTableHeader;
 import EstilosComponents.GestionEncabezadoTabla;
 import controller.ControllerProyectos;
 import controller.controllerUsuario;
-import HoverButtons.ControllerGestionarTareas;
+//import HoverButtons.ControllerGestionarTareas;
 
 import java.util.List;
 import javax.swing.table.TableModel;
@@ -26,7 +26,7 @@ import javax.swing.table.TableRowSorter;
 
 public class TareasPendientesPorRealizar extends javax.swing.JFrame {
     
-    public ControllerGestionarTareas ControllerGestionarTareas;
+    //public ControllerGestionarTareas ControllerGestionarTareas;
     private controllerUsuario datos_user;
     private ControllerProyectos conexion = new ControllerProyectos();
     private TareasEliminadas tareasEliminadas;
@@ -40,7 +40,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
         tareasEliminadas = new TareasEliminadas();
         Menu = new PrincipalesOpciones();
         this.setLocationRelativeTo(null);
-        ControllerGestionarTareas = new ControllerGestionarTareas(this);
+        //ControllerGestionarTareas = new ControllerGestionarTareas(this);
         
     //this.table_tareas.setBackground(Color.HSBtoRGB(225,225,225));
     }
@@ -370,7 +370,7 @@ public class TareasPendientesPorRealizar extends javax.swing.JFrame {
 
     private void ComboFiltrarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboFiltrarItemStateChanged
         System.out.println("SE HIZO CLICK EN UN ITEM");
-        String clikeado = (String)evt.getItem();
+        String clikeado = (String) evt.getItem();
         DefaultTableModel modelo = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int row,int colum){
