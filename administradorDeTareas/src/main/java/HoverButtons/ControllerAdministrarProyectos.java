@@ -40,9 +40,9 @@ public class ControllerAdministrarProyectos implements MouseListener {
         Object evt = e.getSource();
         
         if(evt.equals(view.BntGesProyecAdmin)){
-            changeBackground(view.jPanel3, new Color(0,153,0));
+            changeBackground(view.jPanel4, new Color(0,153,0));
         } else if(evt.equals(view.GestProyParticipante)){
-            changeBackground(view.jPanel4, new Color(153,0,204));
+            changeBackground(view.jPanel3, new Color(153,0,204));
         }
     }
 
@@ -51,9 +51,9 @@ public class ControllerAdministrarProyectos implements MouseListener {
         Object evt = e.getSource();
         
         if(evt.equals(view.BntGesProyecAdmin)){
-            changeBackground(view.jPanel3, new Color(0,255,51));
+            changeBackground(view.jPanel4, new Color(0,255,51));
         } else if(evt.equals(view.GestProyParticipante)){
-            changeBackground(view.jPanel4, new Color(153,0,255));
+            changeBackground(view.jPanel3, new Color(153,0,255));
         }
     }
     
